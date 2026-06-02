@@ -1,0 +1,1 @@
+{"version":3,"file":"AuditController.d.ts","sourceRoot":"","sources":["AuditController.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,QAAQ,EAAE,MAAM,SAAS,CAAC;AACxC,OAAO,KAAK,EAAE,WAAW,EAAE,MAAM,kCAAkC,CAAC;AAYpE,qBAAa,eAAe;IACpB,MAAM,CAAC,GAAG,EAAE,WAAW,EAAE,GAAG,EAAE,QAAQ;IAmCtC,IAAI,CAAC,GAAG,EAAE,WAAW,EAAE,GAAG,EAAE,QAAQ;CAc3C"}

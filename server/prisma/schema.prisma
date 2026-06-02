@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Coordinator {
+  id           String   @id @default(uuid())
+  name         String
+  phone        String
+  whatsapp     String?
+  region       String
+  neighborhood String
+  voterRegistration String?
+  pollingPlaceId String?
+  pollingPlace   PollingPlace? @relation(fields: [pollingPlaceId], references: [id])
+  electoralZone  String?
+  electoralSection String?
+  notes        String?
+  status       String   @default("active")
+  voters       Voter[]
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Voter {
+  id                 String   @id @default(uuid())
+  name               String
+  phone              String?
+  whatsapp           String?
+  address            String?
+  neighborhood       String
+  city               String?
+  region             String?
+  voterRegistration  String?
+  electoralZone      String?
+  electoralSection   String?
+  supportStatus      String   @default("gold")
+  notes              String?
+  registrationSource String   @default("manual")
+  status             String   @default("active")
+  pollingPlaceId     String?
+  coordinatorId      String?
+  coordinator        Coordinator? @relation(fields: [coordinatorId], references: [id])
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model PollingPlace {
+  id            String   @id @default(uuid())
+  name          String
+  address       String
+  neighborhood  String
+  region        String
+  electoralZone String
+  sections      String
+  coordinators  Coordinator[]
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("admin")
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

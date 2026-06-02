@@ -1,0 +1,115 @@
+import { prisma } from '../lib/prisma.js';
+import { appendAuditLog } from '../lib/auditLog.js';
+// Helper: converte string CSV de seções para array
+function sectionsToArray(sections) {
+    if (!sections || sections.trim() === '')
+        return [];
+    const normalized = sections
+        .trim()
+        .replace(/^\{/, '')
+        .replace(/\}$/, '');
+    return normalized
+        .split(',')
+        .map((s) => s.trim().replace(/^"|"$/g, ''))
+        .filter(Boolean);
+}
+// Helper: converte array de seções para string CSV
+function sectionsToString(sections) {
+    if (Array.isArray(sections))
+        return sections.join(',');
+    return sections ?? '';
+}
+// Helper: normaliza um local de votação vindo do banco para o formato esperado pelo frontend
+function normalizePlace(p) {
+    return {
+        ...p,
+        sections: sectionsToArray(p.sections),
+    };
+}
+export class PollingPlaceController {
+    async getAll(req, res) {
+        try {
+            const pollingPlaces = await prisma.pollingPlace.findMany({
+                orderBy: { name: 'asc' },
+            });
+            res.json(pollingPlaces.map(normalizePlace));
+        }
+        catch (error) {
+            res.status(500).json({ error: 'Erro ao buscar locais de votação' });
+        }
+    }
+    async getById(req, res) {
+        try {
+            const { id } = req.params;
+            const pollingPlace = await prisma.pollingPlace.findUnique({
+                where: { id }
+            });
+            if (!pollingPlace)
+                return res.status(404).json({ error: 'Local de votação não encontrado' });
+            res.json(normalizePlace(pollingPlace));
+        }
+        catch (error) {
+            res.status(500).json({ error: 'Erro ao buscar local de votação' });
+        }
+    }
+    async create(req, res) {
+        try {
+            const { name, address, neighborhood, region, electoralZone, sections } = req.body;
+            const pollingPlace = await prisma.pollingPlace.create({
+                data: {
+                    name,
+                    address,
+                    neighborhood,
+                    region,
+                    electoralZone,
+                    sections: sectionsToString(sections),
+                }
+            });
+            const actor = req.userId ? await prisma.user.findUnique({ where: { id: req.userId } }) : null;
+            await appendAuditLog({
+                type: 'polling_place_created',
+                userId: req.userId ?? 'unknown',
+                userRole: req.userRole,
+                userName: actor?.name,
+                userEmail: actor?.email,
+                message: `Novo local de votação cadastrado: ${pollingPlace.name}`,
+                metadata: { pollingPlaceId: pollingPlace.id, pollingPlaceName: pollingPlace.name },
+                ip: req.ip,
+                userAgent: req.get('user-agent') ?? undefined,
+            });
+            res.status(201).json(normalizePlace(pollingPlace));
+        }
+        catch (error) {
+            res.status(500).json({ error: 'Erro ao criar local de votação' });
+        }
+    }
+    async update(req, res) {
+        try {
+            const { id } = req.params;
+            const { sections, ...rest } = req.body;
+            const data = {
+                ...rest,
+                ...(sections !== undefined ? { sections: sectionsToString(sections) } : {}),
+            };
+            const pollingPlace = await prisma.pollingPlace.update({
+                where: { id },
+                data,
+            });
+            res.json(normalizePlace(pollingPlace));
+        }
+        catch (error) {
+            res.status(500).json({ error: 'Erro ao atualizar local de votação' });
+        }
+    }
+    async delete(req, res) {
+        try {
+            const { id } = req.params;
+            await prisma.pollingPlace.delete({ where: { id } });
+            res.status(204).send();
+        }
+        catch (error) {
+            res.status(500).json({ error: 'Erro ao excluir local de votação' });
+        }
+    }
+}
+//# sourceMappingURL=PollingPlaceController.js.map
