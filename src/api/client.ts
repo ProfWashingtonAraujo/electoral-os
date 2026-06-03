@@ -1,7 +1,18 @@
 import axios from 'axios';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+
+// Warn in production when VITE_API_URL was not set at build time
+if (!import.meta.env.VITE_API_URL && typeof window !== 'undefined' && !window.location.hostname.includes('localhost')) {
+  console.error(
+    '[ElectoraOS] ⚠️ VITE_API_URL não foi definida no build. ' +
+    'O frontend está tentando usar http://localhost:3001/api, que não funciona em produção. ' +
+    'Configure VITE_API_URL nas variáveis de ambiente da Vercel e faça um novo deploy.'
+  );
+}
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3001/api',
+  baseURL: API_URL,
   headers: {
     'Content-Type': 'application/json',
   },
