@@ -23,19 +23,13 @@ export function CoordinatorsPage() {
   const [statusFilter, setStatusFilter] = useState('')
   const [deleteTarget, setDeleteTarget] = useState<Coordinator | null>(null)
 
-  const getCoordinatorTier = (voterCount: number): 'gold' | 'platinum' | 'premium' => {
-    if (voterCount < 50) return 'gold'
-    if (voterCount < 100) return 'platinum'
-    return 'premium'
-  }
-
   const filtered = coordinators.filter((c) => {
     const matchSearch =
       !search ||
       c.name.toLowerCase().includes(search.toLowerCase()) ||
       c.neighborhood.toLowerCase().includes(search.toLowerCase())
     const matchRegion = !regionFilter || c.region === regionFilter
-    const matchStatus = !statusFilter || getCoordinatorTier(c.voterCount) === statusFilter
+    const matchStatus = !statusFilter || c.status === statusFilter
     return matchSearch && matchRegion && matchStatus
   })
 
@@ -180,7 +174,7 @@ export function CoordinatorsPage() {
                   </td>
                   {/* Status */}
                   <td className="px-5 py-4">
-                    <StatusBadge status={getCoordinatorTier(c.voterCount)} />
+                    <StatusBadge status={c.status} />
                   </td>
                   {/* Actions */}
                   <td className="px-5 py-4">

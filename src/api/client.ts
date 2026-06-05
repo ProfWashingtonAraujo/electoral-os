@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+const configuredApiUrl = import.meta.env.VITE_API_URL?.trim()
+const isLocalhost = typeof window !== 'undefined' && ['localhost', '127.0.0.1'].includes(window.location.hostname)
+const API_URL = isLocalhost ? '/api' : (configuredApiUrl || 'http://localhost:3001/api')
 
 // Warn in production when VITE_API_URL was not set at build time
 if (!import.meta.env.VITE_API_URL && typeof window !== 'undefined' && !window.location.hostname.includes('localhost')) {

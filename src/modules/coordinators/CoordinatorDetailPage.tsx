@@ -14,7 +14,9 @@ export function CoordinatorDetailPage() {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
   const user = useAuthStore((s) => s.user)
+  const isLoading = useCoordinatorsStore((s) => s.isLoading)
   const coordinator = useCoordinatorsStore((s) => s.getById(id!))
+  const fetchCoordinatorById = useCoordinatorsStore((s) => s.fetchById)
   const voters = useVotersStore((s) => s.voters)
   const votersTotal = useVotersStore((s) => s.total)
   const fetchVoters = useVotersStore((s) => s.fetch)
@@ -24,9 +26,26 @@ export function CoordinatorDetailPage() {
 
   useEffect(() => {
     if (id) {
+      fetchCoordinatorById(id).catch(() => {
+        toast({ type: 'error', title: 'Erro ao carregar', message: 'Não foi possível carregar o coordenador' })
+        navigate(ROUTES.COORDINATORS)
+      })
+    }
+  }, [fetchCoordinatorById, id, navigate])
+
+  useEffect(() => {
+    if (id) {
       fetchVoters({ coordinatorId: id, page: 1, perPage: 200 })
     }
   }, [fetchVoters, id])
+
+  if (isLoading && !coordinator) {
+    return (
+      <div className="flex items-center justify-center py-24 text-slate-500">
+        Carregando coordenador...
+      </div>
+    )
+  }
 
   if (!coordinator) {
     return (

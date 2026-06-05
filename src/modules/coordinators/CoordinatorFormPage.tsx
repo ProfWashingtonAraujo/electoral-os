@@ -31,10 +31,11 @@ export function CoordinatorFormPage() {
   const { id } = useParams()
   const isEdit = !!id
   const navigate = useNavigate()
-  const { add, update, getById } = useCoordinatorsStore()
+  const { add, update, getById, fetchById } = useCoordinatorsStore()
   const pollingPlaces = usePollingPlacesStore((s) => s.pollingPlaces)
 
   const existing = isEdit ? getById(id!) : undefined
+  const [isLoadingCoordinator, setIsLoadingCoordinator] = useState(isEdit)
 
   const [pollingPlaceSearch, setPollingPlaceSearch] = useState('')
   const { register, handleSubmit, reset, watch, setValue, formState: { errors, isSubmitting } } = useForm<FormData>({
@@ -58,6 +59,30 @@ export function CoordinatorFormPage() {
   useEffect(() => {
     if (existing) reset(existing)
   }, [existing, reset])
+
+  useEffect(() => {
+    if (!isEdit || !id) {
+      setIsLoadingCoordinator(false)
+      return
+    }
+
+    let isMounted = true
+
+    fetchById(id)
+      .catch(() => {
+        if (isMounted) {
+          toast({ type: 'error', title: 'Erro ao carregar', message: 'Não foi possível carregar o coordenador' })
+          navigate(ROUTES.COORDINATORS)
+        }
+      })
+      .finally(() => {
+        if (isMounted) setIsLoadingCoordinator(false)
+      })
+
+    return () => {
+      isMounted = false
+    }
+  }, [fetchById, id, isEdit, navigate])
 
   useEffect(() => {
     if (!selectedPlace) return
@@ -102,6 +127,14 @@ export function CoordinatorFormPage() {
     } catch (error) {
       toast({ type: 'error', title: 'Erro ao salvar', message: 'Verifique os dados e tente novamente' })
     }
+  }
+
+  if (isLoadingCoordinator) {
+    return (
+      <div className="flex items-center justify-center py-24 text-slate-500">
+        Carregando coordenador...
+      </div>
+    )
   }
 
   return (

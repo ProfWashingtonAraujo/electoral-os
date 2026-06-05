@@ -7,6 +7,7 @@ interface CoordinatorsState {
   isLoading: boolean
   error: string | null
   fetch: () => Promise<void>
+  fetchById: (id: string) => Promise<Coordinator>
   add: (data: CoordinatorFormData) => Promise<Coordinator>
   update: (id: string, data: Partial<CoordinatorFormData>) => Promise<void>
   remove: (id: string) => Promise<void>
@@ -25,6 +26,23 @@ export const useCoordinatorsStore = create<CoordinatorsState>((set, get) => ({
       set({ coordinators, isLoading: false })
     } catch (error) {
       set({ error: 'Erro ao carregar coordenadores', isLoading: false })
+    }
+  },
+
+  fetchById: async (id) => {
+    set({ isLoading: true, error: null })
+    try {
+      const coordinator = await coordinatorApi.getById(id)
+      set((state) => ({
+        coordinators: state.coordinators.some((c) => c.id === id)
+          ? state.coordinators.map((c) => (c.id === id ? { ...c, ...coordinator } : c))
+          : [coordinator, ...state.coordinators],
+        isLoading: false,
+      }))
+      return coordinator
+    } catch (error) {
+      set({ error: 'Erro ao carregar coordenador', isLoading: false })
+      throw error
     }
   },
 
@@ -48,7 +66,7 @@ export const useCoordinatorsStore = create<CoordinatorsState>((set, get) => ({
     try {
       const updated = await coordinatorApi.update(id, data)
       set((state) => ({
-        coordinators: state.coordinators.map((c) => (c.id === id ? updated : c)),
+        coordinators: state.coordinators.map((c) => (c.id === id ? { ...c, ...updated } : c)),
         isLoading: false
       }))
     } catch (error) {

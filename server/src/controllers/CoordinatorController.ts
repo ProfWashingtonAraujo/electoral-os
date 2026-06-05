@@ -7,7 +7,10 @@ export class CoordinatorController {
   async getAll(req: Request, res: Response) {
     try {
       const coordinators = await prisma.coordinator.findMany({
-        include: { _count: { select: { voters: true } } }
+        include: {
+          pollingPlace: { select: { name: true } },
+          _count: { select: { voters: true } }
+        }
       });
       res.json(coordinators);
     } catch (error) {
@@ -21,7 +24,11 @@ export class CoordinatorController {
       const id = String(req.params.id);
       const coordinator = await prisma.coordinator.findUnique({
         where: { id },
-        include: { voters: true }
+        include: {
+          pollingPlace: { select: { name: true } },
+          voters: true,
+          _count: { select: { voters: true } }
+        }
       });
       if (!coordinator) return res.status(404).json({ error: 'Coordenador não encontrado' });
       res.json(coordinator);
@@ -32,9 +39,37 @@ export class CoordinatorController {
 
   async create(req: AuthRequest, res: Response) {
     try {
-      const { name, phone, whatsapp, region, neighborhood, notes, status } = req.body;
+      const {
+        name,
+        phone,
+        whatsapp,
+        region,
+        neighborhood,
+        voterRegistration,
+        pollingPlaceId,
+        electoralZone,
+        electoralSection,
+        notes,
+        status,
+      } = req.body;
       const coordinator = await prisma.coordinator.create({
-        data: { name, phone, whatsapp, region, neighborhood, notes, status }
+        data: {
+          name,
+          phone,
+          whatsapp,
+          region,
+          neighborhood,
+          voterRegistration,
+          pollingPlaceId,
+          electoralZone,
+          electoralSection,
+          notes,
+          status,
+        },
+        include: {
+          pollingPlace: { select: { name: true } },
+          _count: { select: { voters: true } }
+        }
       });
 
       const actor = req.userId ? await prisma.user.findUnique({ where: { id: req.userId } }) : null;
@@ -59,10 +94,38 @@ export class CoordinatorController {
   async update(req: Request, res: Response) {
     try {
       const id = String(req.params.id);
-      const { name, phone, whatsapp, region, neighborhood, notes, status } = req.body;
+      const {
+        name,
+        phone,
+        whatsapp,
+        region,
+        neighborhood,
+        voterRegistration,
+        pollingPlaceId,
+        electoralZone,
+        electoralSection,
+        notes,
+        status,
+      } = req.body;
       const coordinator = await prisma.coordinator.update({
         where: { id },
-        data: { name, phone, whatsapp, region, neighborhood, notes, status }
+        data: {
+          name,
+          phone,
+          whatsapp,
+          region,
+          neighborhood,
+          voterRegistration,
+          pollingPlaceId,
+          electoralZone,
+          electoralSection,
+          notes,
+          status,
+        },
+        include: {
+          pollingPlace: { select: { name: true } },
+          _count: { select: { voters: true } }
+        }
       });
       res.json(coordinator);
     } catch (error) {
