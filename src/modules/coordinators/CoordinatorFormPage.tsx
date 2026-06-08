@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -40,6 +40,8 @@ export function CoordinatorFormPage() {
   const existing = isEdit ? getById(id!) : undefined
   const [isLoadingCoordinator, setIsLoadingCoordinator] = useState(isEdit)
   const [isLoadingVoterData, setIsLoadingVoterData] = useState(false)
+  const [voterLookupMessage, setVoterLookupMessage] = useState<string | null>(null)
+  const lastLookupRef = useRef<string>('')
 
   const [pollingPlaceSearch, setPollingPlaceSearch] = useState('')
   const { register, handleSubmit, reset, watch, setValue, formState: { errors, isSubmitting } } = useForm<FormData>({
@@ -48,6 +50,7 @@ export function CoordinatorFormPage() {
   })
 
   const selectedPlaceId = watch('pollingPlaceId')
+  const voterRegistrationValue = watch('voterRegistration')
   const selectedPlace = pollingPlaces.find((p) => p.id === selectedPlaceId)
   const searchTerm = pollingPlaceSearch.trim().toLowerCase()
   const shouldFilterPollingPlaces = searchTerm.length >= 3
@@ -114,6 +117,9 @@ export function CoordinatorFormPage() {
     const normalizedValue = normalizeVoterRegistration(rawValue)
     if (normalizedValue.length < 12) return
 
+    lastLookupRef.current = normalizedValue
+    setVoterLookupMessage(null)
+
     setIsLoadingVoterData(true)
 
     try {
@@ -126,7 +132,10 @@ export function CoordinatorFormPage() {
         if (matchedVoter) break
       }
 
-      if (!matchedVoter) return
+      if (!matchedVoter) {
+        setVoterLookupMessage('Nenhum eleitor encontrado para este titulo')
+        return
+      }
 
       const currentName = watch('name')
       const currentWhatsapp = watch('whatsapp')
@@ -154,6 +163,26 @@ export function CoordinatorFormPage() {
       setIsLoadingVoterData(false)
     }
   }
+
+  useEffect(() => {
+    const normalizedValue = normalizeVoterRegistration(voterRegistrationValue ?? '')
+
+    if (normalizedValue.length < 12) {
+      lastLookupRef.current = ''
+      setVoterLookupMessage(null)
+      return
+    }
+
+    if (lastLookupRef.current === normalizedValue) return
+
+    const timeoutId = window.setTimeout(() => {
+      void fillFromVoterRegistration(voterRegistrationValue ?? '')
+    }, 400)
+
+    return () => {
+      window.clearTimeout(timeoutId)
+    }
+  }, [voterRegistrationValue])
 
   const onSubmit = async (data: FormData) => {
     const uppercaseData = {
@@ -285,13 +314,10 @@ export function CoordinatorFormPage() {
               <input
                 placeholder="1234 5678 9012"
                 className={`form-input ${errors.voterRegistration ? 'error' : ''}`}
-                {...register('voterRegistration', {
-                  onBlur: (event) => {
-                    void fillFromVoterRegistration(event.target.value)
-                  },
-                })}
+                {...register('voterRegistration')}
               />
               {isLoadingVoterData && <p className="text-slate-500 text-xs mt-1">Buscando dados do eleitor...</p>}
+              {!isLoadingVoterData && voterLookupMessage && <p className="text-amber-600 text-xs mt-1">{voterLookupMessage}</p>}
               {errors.voterRegistration && <p className="text-red-500 text-xs mt-1">{errors.voterRegistration.message}</p>}
             </div>
             <div>
