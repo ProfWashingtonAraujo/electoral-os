@@ -110,14 +110,21 @@ export function CoordinatorFormPage() {
   }, [selectedPlace, setValue, watch])
 
   const fillFromVoterRegistration = async (value: string) => {
-    const normalizedValue = normalizeVoterRegistration(value)
+    const rawValue = value.trim()
+    const normalizedValue = normalizeVoterRegistration(rawValue)
     if (normalizedValue.length < 12) return
 
     setIsLoadingVoterData(true)
 
     try {
-      const response = await voterApi.getAll({ search: normalizedValue, page: 1, perPage: 20 })
-      const matchedVoter = response.items.find((voter) => normalizeVoterRegistration(voter.voterRegistration) === normalizedValue)
+      const searches = Array.from(new Set([rawValue, normalizedValue])).filter(Boolean)
+      let matchedVoter: Awaited<ReturnType<typeof voterApi.getAll>>['items'][number] | undefined
+
+      for (const search of searches) {
+        const response = await voterApi.getAll({ search, page: 1, perPage: 20 })
+        matchedVoter = response.items.find((voter) => normalizeVoterRegistration(voter.voterRegistration) === normalizedValue)
+        if (matchedVoter) break
+      }
 
       if (!matchedVoter) return
 
