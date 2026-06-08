@@ -1,0 +1,1102 @@
+LOCAIS DE VOTAÇÃO E RESPECTIVAS SEÇÕES
+27ª Zona Eleitoral - Crato/CE
+Fonte: Sistema Elo / TRE-CE - atualizado em 30/05/2026 às 11:31:01
+
+RESUMO GERAL
+Locais de votação: 91
+Seções eleitorais: 380
+Eleitores aptos: 96.324
+
+==========================================================================================
+
+01. CÓD. LOCAL: 1023
+LOCAL: MINISTÉRIO DO TRABALHO E EMPREGO - AGÊNCIA DE CRATO/CE
+ENDEREÇO: AVENIDA PERIMETRAL DOM FRANCISCO, 491
+BAIRRO: SÃO MIGUEL
+CEP: 63122375
+APTOS NO LOCAL: 691
+QUANTIDADE DE SEÇÕES: 3
+SEÇÕES: 3, 315, 381
+APTOS POR SEÇÃO: 3 (340 aptos); 315 (347 aptos); 381 (4 aptos)
+
+==========================================================================================
+
+02. CÓD. LOCAL: 1074
+LOCAL: COLÉGIO DIOCESANO DO CRATO
+ENDEREÇO: RUA NÉLSON ALENCAR, 569
+BAIRRO: CENTRO
+CEP: 63100110
+APTOS NO LOCAL: 2.206
+QUANTIDADE DE SEÇÕES: 11
+SEÇÕES: 9, 13, 14, 15, 16, 17, 20, 36, 37, 41, 160
+APTOS POR SEÇÃO: 9 (200 aptos); 13 (203 aptos); 14 (201 aptos); 15 (198 aptos); 16 (200 aptos); 17 (201 aptos); 20 (202 aptos); 36 (198 aptos); 37 (201 aptos); 41 (201 aptos); 160 (201 aptos)
+
+==========================================================================================
+
+03. CÓD. LOCAL: 1082
+LOCAL: COLÉGIO SANTA TERESA DE JESUS
+ENDEREÇO: RUA DOM QUINTINO, 863
+BAIRRO: CENTRO
+CEP: 63100070
+APTOS NO LOCAL: 1.096
+QUANTIDADE DE SEÇÕES: 7
+SEÇÕES: 18, 19, 31, 35, 38, 39, 167
+APTOS POR SEÇÃO: 18 (155 aptos); 19 (157 aptos); 31 (158 aptos); 35 (155 aptos); 38 (157 aptos); 39 (158 aptos); 167 (156 aptos)
+
+==========================================================================================
+
+04. CÓD. LOCAL: 1104
+LOCAL: 18ª CREDE - COORDENADORIA REGIONAL DE DESENV. DA EDUCAÇÃO
+ENDEREÇO: RUA ANDRÉ CARTAXO, 09
+BAIRRO: CENTRO
+CEP: 63100172
+APTOS NO LOCAL: 609
+QUANTIDADE DE SEÇÕES: 4
+SEÇÕES: 21, 43, 44, 45
+APTOS POR SEÇÃO: 21 (151 aptos); 43 (154 aptos); 44 (153 aptos); 45 (151 aptos)
+
+==========================================================================================
+
+05. CÓD. LOCAL: 1112
+LOCAL: EEIEF SÃO FRANCISCO
+ENDEREÇO: RUA BRIGADEIRO LEANDRO BEZERRA MONTEIRO, 406
+BAIRRO: CENTRO
+CEP: 63100090
+APTOS NO LOCAL: 391
+QUANTIDADE DE SEÇÕES: 7
+SEÇÕES: 22, 40, 74, 154, 155, 171, 285
+APTOS POR SEÇÃO: 22 (57 aptos); 40 (75 aptos); 74 (50 aptos); 154 (53 aptos); 155 (53 aptos); 171 (51 aptos); 285 (52 aptos)
+
+==========================================================================================
+
+06. CÓD. LOCAL: 1120
+LOCAL: ETI 18 DE MAIO
+ENDEREÇO: AVENIDA JOSÉ ALVES DE FIGUEIREDO, N. 300.
+BAIRRO: CENTRO
+CEP: 63100051
+APTOS NO LOCAL: 441
+QUANTIDADE DE SEÇÕES: 4
+SEÇÕES: 4, 5, 23, 24
+APTOS POR SEÇÃO: 4 (112 aptos); 5 (110 aptos); 23 (109 aptos); 24 (110 aptos)
+
+==========================================================================================
+
+07. CÓD. LOCAL: 1147
+LOCAL: EEIEF PROFª EDILMA FERNANDES G. RODRIGUES - CÍRCULO OPERÁRIO
+ENDEREÇO: AVENIDA JOSÉ ALVES DE FIGUEIREDO S/N
+BAIRRO: CENTRO
+CEP: 63100051
+APTOS NO LOCAL: 1.555
+QUANTIDADE DE SEÇÕES: 7
+SEÇÕES: 10, 11, 12, 26, 27, 28, 29
+APTOS POR SEÇÃO: 10 (222 aptos); 11 (222 aptos); 12 (218 aptos); 26 (225 aptos); 27 (219 aptos); 28 (224 aptos); 29 (225 aptos)
+
+==========================================================================================
+
+08. CÓD. LOCAL: 1155
+LOCAL: ESCOLA TÉCNICA DO COMÉRCIO
+ENDEREÇO: RUA DOUTOR JOÃO PESSOA, 190 - PRAÇA JUAREZ TÁVORA
+BAIRRO: CENTRO
+CEP: 63100050
+APTOS NO LOCAL: 1.270
+QUANTIDADE DE SEÇÕES: 7
+SEÇÕES: 30, 34, 157, 159, 164, 165, 176
+APTOS POR SEÇÃO: 30 (182 aptos); 34 (181 aptos); 157 (182 aptos); 159 (181 aptos); 164 (180 aptos); 165 (181 aptos); 176 (183 aptos)
+
+==========================================================================================
+
+09. CÓD. LOCAL: 1171
+LOCAL: COLÉGIO ÁGAPE ESTUDOS
+ENDEREÇO: RUA RATISBONA, 295
+BAIRRO: CENTRO
+CEP: 63100140
+APTOS NO LOCAL: 850
+QUANTIDADE DE SEÇÕES: 6
+SEÇÕES: 32, 46, 103, 104, 105, 170
+APTOS POR SEÇÃO: 32 (117 aptos); 46 (116 aptos); 103 (170 aptos); 104 (168 aptos); 105 (162 aptos); 170 (117 aptos)
+
+==========================================================================================
+
+10. CÓD. LOCAL: 1228
+LOCAL: 20ª CRES - COORDENADORIA REGIONAL DE SAÚDE - CRATO
+ENDEREÇO: AV. BRIGADEIRO JOSÉ SAMPAIO MACEDO S/N
+BAIRRO: PALMEIRAL
+CEP: 63100610
+APTOS NO LOCAL: 512
+QUANTIDADE DE SEÇÕES: 2
+SEÇÕES: 188, 314
+APTOS POR SEÇÃO: 188 (254 aptos); 314 (258 aptos)
+
+==========================================================================================
+
+11. CÓD. LOCAL: 1295
+LOCAL: EEEP MARIA VIOLETA ARRAES DE ALENCAR GERVAISEAU
+ENDEREÇO: AVENIDA TEODORICO TELES, SN
+BAIRRO: SÃO MIGUEL
+CEP: 63122430
+APTOS NO LOCAL: 3.507
+QUANTIDADE DE SEÇÕES: 11
+SEÇÕES: 47, 48, 49, 50, 51, 52, 53, 304, 343, 351, 364
+APTOS POR SEÇÃO: 47 (317 aptos); 48 (318 aptos); 49 (318 aptos); 50 (321 aptos); 51 (319 aptos); 52 (318 aptos); 53 (319 aptos); 304 (321 aptos); 343 (321 aptos); 351 (320 aptos); 364 (315 aptos)
+
+==========================================================================================
+
+12. CÓD. LOCAL: 1317
+LOCAL: URCA - CURSO DE DIREITO
+ENDEREÇO: AVENIDA TEODORICO TELES, 745
+BAIRRO: PALMEIRAL
+CEP: 63100541
+APTOS NO LOCAL: 1.354
+QUANTIDADE DE SEÇÕES: 5
+SEÇÕES: 54, 55, 56, 234, 323
+APTOS POR SEÇÃO: 54 (273 aptos); 55 (273 aptos); 56 (268 aptos); 234 (269 aptos); 323 (271 aptos)
+
+==========================================================================================
+
+13. CÓD. LOCAL: 1325
+LOCAL: SESC - SERVIÇO SOCIAL DO COMÉRCIO
+ENDEREÇO: RUA ANDRÉ CARTAXO, 443
+BAIRRO: PALMEIRAL
+CEP: 63100555
+APTOS NO LOCAL: 677
+QUANTIDADE DE SEÇÕES: 2
+SEÇÕES: 57, 58
+APTOS POR SEÇÃO: 57 (339 aptos); 58 (338 aptos)
+
+==========================================================================================
+
+14. CÓD. LOCAL: 1333
+LOCAL: SECRETARIA DE AÇÃO SOCIAL - SAS
+ENDEREÇO: AVENIDA PERIMETRAL DOM FRANCISCO S/N
+BAIRRO: SÃO MIGUEL
+CEP: 63122375
+APTOS NO LOCAL: 1.604
+QUANTIDADE DE SEÇÕES: 5
+SEÇÕES: 1, 2, 59, 60, 332
+APTOS POR SEÇÃO: 1 (320 aptos); 2 (322 aptos); 59 (321 aptos); 60 (321 aptos); 332 (320 aptos)
+
+==========================================================================================
+
+15. CÓD. LOCAL: 1341
+LOCAL: COLÉGIO PEQUENO PRÍNCIPE
+ENDEREÇO: RUA VINTE E UM DE JUNHO, 935
+BAIRRO: PIMENTA
+CEP: 63105100
+APTOS NO LOCAL: 1.373
+QUANTIDADE DE SEÇÕES: 5
+SEÇÕES: 61, 65, 66, 67, 229
+APTOS POR SEÇÃO: 61 (272 aptos); 65 (276 aptos); 66 (273 aptos); 67 (275 aptos); 229 (277 aptos)
+
+==========================================================================================
+
+16. CÓD. LOCAL: 1350
+LOCAL: EEMTI WÍLSON GONÇALVES
+ENDEREÇO: PRAÇA DR. JOAQUIM FERNANDES TELES, SN.
+BAIRRO: PIMENTA
+CEP: 63105030
+APTOS NO LOCAL: 1.512
+QUANTIDADE DE SEÇÕES: 5
+SEÇÕES: 62, 63, 64, 189, 251
+APTOS POR SEÇÃO: 62 (303 aptos); 63 (304 aptos); 64 (299 aptos); 189 (304 aptos); 251 (302 aptos)
+
+==========================================================================================
+
+17. CÓD. LOCAL: 1376
+LOCAL: EEFM TEODORICO TELES DE QUENTAL
+ENDEREÇO: RUA DOUTOR IRINEU PINHEIRO, 305
+BAIRRO: PIMENTA
+CEP: 63105170
+APTOS NO LOCAL: 2.183
+QUANTIDADE DE SEÇÕES: 7
+SEÇÕES: 68, 69, 214, 238, 287, 322, 354
+APTOS POR SEÇÃO: 68 (312 aptos); 69 (312 aptos); 214 (311 aptos); 238 (313 aptos); 287 (309 aptos); 322 (313 aptos); 354 (313 aptos)
+
+==========================================================================================
+
+18. CÓD. LOCAL: 1384
+LOCAL: URCA - UNIVERSIDADE REGIONAL DO CARIRI
+ENDEREÇO: RUA CORONEL ANTÔNIO LUIZ, 1161
+BAIRRO: PIMENTA
+CEP: 63105000
+APTOS NO LOCAL: 1.836
+QUANTIDADE DE SEÇÕES: 15
+SEÇÕES: 6, 7, 8, 25, 42, 70, 71, 72, 73, 75, 153, 156, 168, 230, 250
+APTOS POR SEÇÃO: 6 (111 aptos); 7 (111 aptos); 8 (110 aptos); 25 (130 aptos); 42 (112 aptos); 70 (134 aptos); 71 (129 aptos); 72 (123 aptos); 73 (127 aptos); 75 (128 aptos); 153 (132 aptos); 156 (112 aptos); 168 (130 aptos); 230 (137 aptos); 250 (110 aptos)
+
+==========================================================================================
+
+19. CÓD. LOCAL: 1422
+LOCAL: EEFM JOSÉ ALVES DE FIGUEIREDO
+ENDEREÇO: RUA GETÚLIO VARGAS, 214
+BAIRRO: VILA ALTA
+CEP: 63119175
+APTOS NO LOCAL: 3.403
+QUANTIDADE DE SEÇÕES: 10
+SEÇÕES: 76, 77, 78, 79, 80, 81, 82, 303, 318, 344
+APTOS POR SEÇÃO: 76 (338 aptos); 77 (344 aptos); 78 (339 aptos); 79 (337 aptos); 80 (339 aptos); 81 (343 aptos); 82 (340 aptos); 303 (341 aptos); 318 (342 aptos); 344 (340 aptos)
+
+==========================================================================================
+
+20. CÓD. LOCAL: 1430
+LOCAL: EEMTI GOVERNADOR ADAUTO BEZERRA
+ENDEREÇO: RUA MARCOS MACEDO S/N
+BAIRRO: SEMINÁRIO
+CEP: 63113430
+APTOS NO LOCAL: 3.418
+QUANTIDADE DE SEÇÕES: 11
+SEÇÕES: 83, 84, 85, 86, 87, 88, 89, 90, 91, 313, 372
+APTOS POR SEÇÃO: 83 (307 aptos); 84 (314 aptos); 85 (312 aptos); 86 (314 aptos); 87 (305 aptos); 88 (310 aptos); 89 (317 aptos); 90 (307 aptos); 91 (314 aptos); 313 (314 aptos); 372 (304 aptos)
+
+==========================================================================================
+
+21. CÓD. LOCAL: 1449
+LOCAL: EEIEF LICEU DIOCESANO DE ARTES E OFÍCIOS
+ENDEREÇO: RUA DUARTE JÚNIOR S/N
+BAIRRO: SEMINÁRIO
+CEP: 63113585
+APTOS NO LOCAL: 2.780
+QUANTIDADE DE SEÇÕES: 9
+SEÇÕES: 93, 94, 95, 96, 97, 205, 295, 347, 365
+APTOS POR SEÇÃO: 93 (313 aptos); 94 (313 aptos); 95 (309 aptos); 96 (308 aptos); 97 (308 aptos); 205 (309 aptos); 295 (307 aptos); 347 (309 aptos); 365 (304 aptos)
+
+==========================================================================================
+
+22. CÓD. LOCAL: 1457
+LOCAL: AGÊNCIA DA PREVIDÊNCIA SOCIAL- INSS
+ENDEREÇO: RUA JOSÉ MARROCOS, 458
+BAIRRO: PINTO MADEIRA
+CEP: 63101005
+APTOS NO LOCAL: 974
+QUANTIDADE DE SEÇÕES: 3
+SEÇÕES: 98, 99, 100
+APTOS POR SEÇÃO: 98 (324 aptos); 99 (326 aptos); 100 (324 aptos)
+
+==========================================================================================
+
+23. CÓD. LOCAL: 1465
+LOCAL: EEMTI ESTADO DA BAHIA
+ENDEREÇO: AVENIDA JOSÉ PINHEIRO ESMERALDO S/N
+BAIRRO: PINTO MADEIRA
+CEP: 63101085
+APTOS NO LOCAL: 1.931
+QUANTIDADE DE SEÇÕES: 6
+SEÇÕES: 101, 102, 228, 291, 309, 329
+APTOS POR SEÇÃO: 101 (324 aptos); 102 (322 aptos); 228 (315 aptos); 291 (322 aptos); 309 (323 aptos); 329 (325 aptos)
+
+==========================================================================================
+
+24. CÓD. LOCAL: 1481
+LOCAL: EEF DOM QUINTINO
+ENDEREÇO: RUA SÃO FRANCISCO S/N
+BAIRRO: PINTO MADEIRA
+CEP: 63101065
+APTOS NO LOCAL: 1.446
+QUANTIDADE DE SEÇÕES: 5
+SEÇÕES: 33, 106, 177, 216, 371
+APTOS POR SEÇÃO: 33 (289 aptos); 106 (297 aptos); 177 (300 aptos); 216 (287 aptos); 371 (273 aptos)
+
+==========================================================================================
+
+25. CÓD. LOCAL: 1490
+LOCAL: CENTRO DE ESPECIALIDADES DO CRATO
+ENDEREÇO: RUA JOSÉ MARROCOS 471
+BAIRRO: PINTO MADEIRA
+CEP: 63101005
+APTOS NO LOCAL: 992
+QUANTIDADE DE SEÇÕES: 4
+SEÇÕES: 107, 108, 206, 260
+APTOS POR SEÇÃO: 107 (253 aptos); 108 (250 aptos); 206 (247 aptos); 260 (242 aptos)
+
+==========================================================================================
+
+26. CÓD. LOCAL: 1503
+LOCAL: EEIEF MELVIN JONES
+ENDEREÇO: RUA PEDRO GOMES DE NORÕES, 1877. SÍTIO SAQUINHO
+BAIRRO: MURITI
+CEP: 63132150
+APTOS NO LOCAL: 2.428
+QUANTIDADE DE SEÇÕES: 8
+SEÇÕES: 109, 110, 111, 112, 113, 264, 324, 377
+APTOS POR SEÇÃO: 109 (304 aptos); 110 (312 aptos); 111 (300 aptos); 112 (301 aptos); 113 (301 aptos); 264 (306 aptos); 324 (310 aptos); 377 (294 aptos)
+
+==========================================================================================
+
+27. CÓD. LOCAL: 1520
+LOCAL: UNIDADE BÁSICA DE SAÚDE FRANCISCO DAS CHAGAS LOBO SOARES (CHAGUINHA)
+ENDEREÇO: RUA PEDRO ORLANDO BEZERRA DE MENEZES, S/N
+BAIRRO: MURITI
+CEP: 63133160
+APTOS NO LOCAL: 649
+QUANTIDADE DE SEÇÕES: 4
+SEÇÕES: 114, 115, 116, 117
+APTOS POR SEÇÃO: 114 (162 aptos); 115 (162 aptos); 116 (162 aptos); 117 (163 aptos)
+
+==========================================================================================
+
+28. CÓD. LOCAL: 1538
+LOCAL: EEIEF ADÉRSON DA FRANCA ALENCAR
+ENDEREÇO: RUA CARLINA PINHEIRO S/N
+BAIRRO: BELMONTE
+CEP: 63139000
+APTOS NO LOCAL: 1.676
+QUANTIDADE DE SEÇÕES: 7
+SEÇÕES: 118, 119, 120, 121, 239, 263, 294
+APTOS POR SEÇÃO: 118 (240 aptos); 119 (240 aptos); 120 (241 aptos); 121 (241 aptos); 239 (238 aptos); 263 (235 aptos); 294 (241 aptos)
+
+==========================================================================================
+
+29. CÓD. LOCAL: 1546
+LOCAL: UNIDADE BÁSICA DE SAÚDE MARIA VERÔNICA COUTO PINHEIRO
+ENDEREÇO: AVENIDA JOSÉ HORÁCIO PEQUENO S/N - BELMONTE
+BAIRRO: ZACARIAS GONÇALVES
+CEP: 63110012
+APTOS NO LOCAL: 335
+QUANTIDADE DE SEÇÕES: 2
+SEÇÕES: 122, 369
+APTOS POR SEÇÃO: 122 (304 aptos); 369 (31 aptos)
+
+==========================================================================================
+
+30. CÓD. LOCAL: 1554
+LOCAL: EEIEF ROTARY
+ENDEREÇO: AV. JOSÉ HORÁCIO PEQUENO, 1851
+BAIRRO: LAMEIRO
+CEP: 63112012
+APTOS NO LOCAL: 997
+QUANTIDADE DE SEÇÕES: 3
+SEÇÕES: 123, 124, 335
+APTOS POR SEÇÃO: 123 (333 aptos); 124 (332 aptos); 335 (332 aptos)
+
+==========================================================================================
+
+31. CÓD. LOCAL: 1562
+LOCAL: EEIEF RAIMUNDO NONATO DE SOUZA
+ENDEREÇO: RUA SEBASTIÃO DE SOUZA MARTINS, 143
+BAIRRO: DOM QUINTINO
+CEP: 63137000
+APTOS NO LOCAL: 1.258
+QUANTIDADE DE SEÇÕES: 7
+SEÇÕES: 125, 126, 127, 131, 161, 169, 232
+APTOS POR SEÇÃO: 125 (178 aptos); 126 (180 aptos); 127 (180 aptos); 131 (182 aptos); 161 (179 aptos); 169 (181 aptos); 232 (178 aptos)
+
+==========================================================================================
+
+32. CÓD. LOCAL: 1589
+LOCAL: CENTRO DE EDUCAÇÃO INFANTIL RAIMUNDO DE SOUSA SOBRINHO
+ENDEREÇO: RUA BOA VISTA, 252
+BAIRRO: DOM QUINTINO
+CEP: 63137000
+APTOS NO LOCAL: 744
+QUANTIDADE DE SEÇÕES: 5
+SEÇÕES: 128, 129, 130, 132, 259
+APTOS POR SEÇÃO: 128 (149 aptos); 129 (148 aptos); 130 (150 aptos); 132 (148 aptos); 259 (149 aptos)
+
+==========================================================================================
+
+33. CÓD. LOCAL: 1619
+LOCAL: EEIEF PAULO LIMAVERDE
+ENDEREÇO: ROD. VICENTE TELES, SN. DISTRITO DE SANTA FÉ - SEDE.
+BAIRRO: SANTA FÉ
+CEP: 63136000
+APTOS NO LOCAL: 1.015
+QUANTIDADE DE SEÇÕES: 11
+SEÇÕES: 133, 134, 135, 136, 137, 138, 139, 140, 141, 152, 255
+APTOS POR SEÇÃO: 133 (92 aptos); 134 (93 aptos); 135 (92 aptos); 136 (92 aptos); 137 (93 aptos); 138 (93 aptos); 139 (93 aptos); 140 (92 aptos); 141 (91 aptos); 152 (92 aptos); 255 (92 aptos)
+
+==========================================================================================
+
+34. CÓD. LOCAL: 1643
+LOCAL: UNIDADE BÁSICA DE SAÚDE JOAQUIM FERREIRA LEITE
+ENDEREÇO: RUA INÁCIO FERREIRA LEITE S/N
+BAIRRO: PONTA DA SERRA
+CEP: 63138000
+APTOS NO LOCAL: 456
+QUANTIDADE DE SEÇÕES: 4
+SEÇÕES: 142, 143, 144, 254
+APTOS POR SEÇÃO: 142 (112 aptos); 143 (115 aptos); 144 (113 aptos); 254 (116 aptos)
+
+==========================================================================================
+
+35. CÓD. LOCAL: 1651
+LOCAL: EEIEF PROF. JOSÉ BIZERRA DE BRITTO
+ENDEREÇO: RUA BERNARDO VIEIRA S/N
+BAIRRO: PONTA DA SERRA
+CEP: 63138000
+APTOS NO LOCAL: 1.576
+QUANTIDADE DE SEÇÕES: 6
+SEÇÕES: 145, 146, 147, 148, 149, 150
+APTOS POR SEÇÃO: 145 (264 aptos); 146 (262 aptos); 147 (262 aptos); 148 (263 aptos); 149 (262 aptos); 150 (263 aptos)
+
+==========================================================================================
+
+36. CÓD. LOCAL: 1678
+LOCAL: ASSOCIAÇÃO COMUNITÁRIA SÃO JUDAS TADEU
+ENDEREÇO: SÍTIO CACHOEIRA DOS GONÇALVES
+BAIRRO: DOM QUINTINO
+CEP: 63137000
+APTOS NO LOCAL: 166
+QUANTIDADE DE SEÇÕES: 1
+SEÇÕES: 173
+APTOS POR SEÇÃO: 173 (166 aptos)
+
+==========================================================================================
+
+37. CÓD. LOCAL: 1686
+LOCAL: CRAS SEMINÁRIO - CENTRO DE REFERÊNCIA DE ASSISTÊNCIA SOCIAL
+ENDEREÇO: RUA JOSÉ PINHEIRO TELES, 169
+BAIRRO: NOVO CRATO
+CEP: 63113210
+APTOS NO LOCAL: 1.236
+QUANTIDADE DE SEÇÕES: 4
+SEÇÕES: 163, 202, 252, 353
+APTOS POR SEÇÃO: 163 (307 aptos); 202 (309 aptos); 252 (309 aptos); 353 (311 aptos)
+
+==========================================================================================
+
+38. CÓD. LOCAL: 1694
+LOCAL: EEMTI JUVÊNCIO BARRETO
+ENDEREÇO: RUA JUVÊNCIO BARRETO S/N
+BAIRRO: GISÉLIA PINHEIRO
+CEP: 63115470
+APTOS NO LOCAL: 3.342
+QUANTIDADE DE SEÇÕES: 10
+SEÇÕES: 166, 200, 219, 243, 274, 297, 316, 326, 342, 363
+APTOS POR SEÇÃO: 166 (335 aptos); 200 (332 aptos); 219 (334 aptos); 243 (336 aptos); 274 (336 aptos); 297 (334 aptos); 316 (336 aptos); 326 (336 aptos); 342 (331 aptos); 363 (332 aptos)
+
+==========================================================================================
+
+39. CÓD. LOCAL: 1716
+LOCAL: EEIEF PROFESSORA PUREZA TELES
+ENDEREÇO: RUA SÃO FRANCISCO S/N - MONTE ALVERNE
+BAIRRO: MONTE ALVERNE
+CEP: 63136500
+APTOS NO LOCAL: 1.478
+QUANTIDADE DE SEÇÕES: 5
+SEÇÕES: 172, 178, 220, 226, 241
+APTOS POR SEÇÃO: 172 (297 aptos); 178 (292 aptos); 220 (296 aptos); 226 (296 aptos); 241 (297 aptos)
+
+==========================================================================================
+
+40. CÓD. LOCAL: 1724
+LOCAL: ROTARY CLUBE DO CRATO
+ENDEREÇO: RUA ROTARY S/N, PARQUE FLORESTA
+BAIRRO: NOVO HORIZONTE
+CEP: 63108100
+APTOS NO LOCAL: 1.034
+QUANTIDADE DE SEÇÕES: 3
+SEÇÕES: 175, 237, 282
+APTOS POR SEÇÃO: 175 (341 aptos); 237 (345 aptos); 282 (348 aptos)
+
+==========================================================================================
+
+41. CÓD. LOCAL: 1740
+LOCAL: IGREJA SANTA RITA DE CÁSSIA
+ENDEREÇO: SÍTIO FAUSTINO
+BAIRRO: DOM QUINTINO
+CEP: 63137000
+APTOS NO LOCAL: 168
+QUANTIDADE DE SEÇÕES: 1
+SEÇÕES: 186
+APTOS POR SEÇÃO: 186 (168 aptos)
+
+==========================================================================================
+
+42. CÓD. LOCAL: 1759
+LOCAL: EEIEF JOÃO PAULO II
+ENDEREÇO: VILA GUILHERME S/N
+BAIRRO: PONTA DA SERRA
+CEP: 63138000
+APTOS NO LOCAL: 499
+QUANTIDADE DE SEÇÕES: 3
+SEÇÕES: 179, 269, 348
+APTOS POR SEÇÃO: 179 (282 aptos); 269 (140 aptos); 348 (77 aptos)
+
+==========================================================================================
+
+43. CÓD. LOCAL: 1767
+LOCAL: POSTO DE SAÚDE SÍTIO ALEGRE
+ENDEREÇO: SÍTIO ALEGRE
+BAIRRO: PONTA DA SERRA
+CEP: 63138000
+APTOS NO LOCAL: 202
+QUANTIDADE DE SEÇÕES: 1
+SEÇÕES: 185
+APTOS POR SEÇÃO: 185 (202 aptos)
+
+==========================================================================================
+
+44. CÓD. LOCAL: 1775
+LOCAL: EEIEF VITURINO DA COSTA VILAR
+ENDEREÇO: RUA VITORINO DA COSTA VILAR, SN. SÍTIO MALHADA
+BAIRRO: PONTA DA SERRA
+CEP: 63138000
+APTOS NO LOCAL: 957
+QUANTIDADE DE SEÇÕES: 4
+SEÇÕES: 180, 182, 286, 361
+APTOS POR SEÇÃO: 180 (179 aptos); 182 (298 aptos); 286 (301 aptos); 361 (179 aptos)
+
+==========================================================================================
+
+45. CÓD. LOCAL: 1783
+LOCAL: EEIEF ANA REGINO
+ENDEREÇO: SÍTIO RIACHO VERMELHO S/N
+BAIRRO: SANTA FÉ
+CEP: 63136000
+APTOS NO LOCAL: 347
+QUANTIDADE DE SEÇÕES: 1
+SEÇÕES: 183
+APTOS POR SEÇÃO: 183 (347 aptos)
+
+==========================================================================================
+
+46. CÓD. LOCAL: 1791
+LOCAL: EEIEF JOSÉ BATISTA DE LIMA
+ENDEREÇO: SÍTIO RIACHO FUNDO S/N
+BAIRRO: SANTA FÉ
+CEP: 63136000
+APTOS NO LOCAL: 492
+QUANTIDADE DE SEÇÕES: 2
+SEÇÕES: 181, 265
+APTOS POR SEÇÃO: 181 (245 aptos); 265 (247 aptos)
+
+==========================================================================================
+
+47. CÓD. LOCAL: 1805
+LOCAL: EEIEF SÔNIA CALLOU DE SÁ
+ENDEREÇO: RUA PADRE CÍCERO S/N
+BAIRRO: BELA VISTA
+CEP: 63139500
+APTOS NO LOCAL: 1.214
+QUANTIDADE DE SEÇÕES: 4
+SEÇÕES: 184, 187, 242, 292
+APTOS POR SEÇÃO: 184 (303 aptos); 187 (306 aptos); 242 (302 aptos); 292 (303 aptos)
+
+==========================================================================================
+
+48. CÓD. LOCAL: 1813
+LOCAL: APAE - INSTITUTO DE REEDUCAÇÃO EVILENE ROLIM LOUCETTI
+ENDEREÇO: TRAVESSA MILAGRES S/N
+BAIRRO: VILA ALTA
+CEP: 63119180
+APTOS NO LOCAL: 1.948
+QUANTIDADE DE SEÇÕES: 6
+SEÇÕES: 193, 221, 236, 257, 288, 320
+APTOS POR SEÇÃO: 193 (328 aptos); 221 (321 aptos); 236 (323 aptos); 257 (325 aptos); 288 (323 aptos); 320 (328 aptos)
+
+==========================================================================================
+
+49. CÓD. LOCAL: 1821
+LOCAL: EEIEF ANTÔNIO ANTUÉRPIO GONZAGA DE MELO
+ENDEREÇO: RUA ANTÔNIO ESMERALDO LEITE S/N
+BAIRRO: VILA LOBO
+CEP: 63102080
+APTOS NO LOCAL: 2.105
+QUANTIDADE DE SEÇÕES: 7
+SEÇÕES: 192, 196, 235, 271, 305, 328, 380
+APTOS POR SEÇÃO: 192 (342 aptos); 196 (343 aptos); 235 (336 aptos); 271 (341 aptos); 305 (336 aptos); 328 (343 aptos); 380 (64 aptos)
+
+==========================================================================================
+
+50. CÓD. LOCAL: 1830
+LOCAL: EEIEF JOSÉ ROSA
+ENDEREÇO: RUA JOSÉ JUSTINO ALVES, SN. SÍTIO SANTA ROSA
+BAIRRO: MURITI
+CEP: 63135105
+APTOS NO LOCAL: 722
+QUANTIDADE DE SEÇÕES: 3
+SEÇÕES: 197, 256, 367
+APTOS POR SEÇÃO: 197 (287 aptos); 256 (281 aptos); 367 (154 aptos)
+
+==========================================================================================
+
+51. CÓD. LOCAL: 1848
+LOCAL: EEEP GOVERNADOR VIRGÍLIO TÁVORA
+ENDEREÇO: RUA PERGENTINO SILVA S/N
+BAIRRO: SEMINÁRIO
+CEP: 63113525
+APTOS NO LOCAL: 2.800
+QUANTIDADE DE SEÇÕES: 9
+SEÇÕES: 190, 201, 215, 227, 233, 246, 253, 350, 370
+APTOS POR SEÇÃO: 190 (311 aptos); 201 (315 aptos); 215 (309 aptos); 227 (310 aptos); 233 (309 aptos); 246 (313 aptos); 253 (311 aptos); 350 (311 aptos); 370 (311 aptos)
+
+==========================================================================================
+
+52. CÓD. LOCAL: 1856
+LOCAL: EEIEF PEDRO NUNES DE SOUSA
+ENDEREÇO: VILA JENIPAPO, SN.
+BAIRRO: PONTA DA SERRA
+CEP: 63138000
+APTOS NO LOCAL: 588
+QUANTIDADE DE SEÇÕES: 2
+SEÇÕES: 191, 310
+APTOS POR SEÇÃO: 191 (295 aptos); 310 (293 aptos)
+
+==========================================================================================
+
+53. CÓD. LOCAL: 1864
+LOCAL: EEIEF PEDRO FELÍCIO
+ENDEREÇO: VILA SÃO FRANCISCO, SN.
+BAIRRO: PONTA DA SERRA
+CEP: 63138000
+APTOS NO LOCAL: 937
+QUANTIDADE DE SEÇÕES: 3
+SEÇÕES: 199, 289, 339
+APTOS POR SEÇÃO: 199 (314 aptos); 289 (310 aptos); 339 (313 aptos)
+
+==========================================================================================
+
+54. CÓD. LOCAL: 1872
+LOCAL: EEIEF CEL. FILEMON FERNANDES TELES
+ENDEREÇO: RUA CÍCERO PIERRE PEREIRA, SN. VILA SÃO BENTO
+BAIRRO: SÃO BENTO
+CEP: 63123080
+APTOS NO LOCAL: 1.203
+QUANTIDADE DE SEÇÕES: 4
+SEÇÕES: 198, 222, 307, 360
+APTOS POR SEÇÃO: 198 (302 aptos); 222 (304 aptos); 307 (297 aptos); 360 (300 aptos)
+
+==========================================================================================
+
+55. CÓD. LOCAL: 1880
+LOCAL: EEIEF PROFª ROSA FERREIRA DE MACEDO
+ENDEREÇO: RUA MARIA TAVARES DE OLIVEIRA, SN. SÍTIO BAIXIO DO MUQUÉM
+BAIRRO: BAIXIO DAS PALMEIRAS
+CEP: 63135500
+APTOS NO LOCAL: 949
+QUANTIDADE DE SEÇÕES: 3
+SEÇÕES: 194, 195, 258
+APTOS POR SEÇÃO: 194 (318 aptos); 195 (316 aptos); 258 (315 aptos)
+
+==========================================================================================
+
+56. CÓD. LOCAL: 1902
+LOCAL: EEIEF ARLINDO MATHIAS
+ENDEREÇO: ROD. ANTÔNIO TELES S/N, ROMUALDO
+BAIRRO: BAIXIO DAS PALMEIRAS
+CEP: 63135500
+APTOS NO LOCAL: 555
+QUANTIDADE DE SEÇÕES: 2
+SEÇÕES: 204, 302
+APTOS POR SEÇÃO: 204 (277 aptos); 302 (278 aptos)
+
+==========================================================================================
+
+57. CÓD. LOCAL: 1929
+LOCAL: INSTITUTO FED. DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA - IFCE - CAMPUS CRATO
+ENDEREÇO: CE-292, S/N - KM 15
+BAIRRO: GISÉLIA PINHEIRO
+CEP: 63115500
+APTOS NO LOCAL: 287
+QUANTIDADE DE SEÇÕES: 2
+SEÇÕES: 208, 296
+APTOS POR SEÇÃO: 208 (143 aptos); 296 (144 aptos)
+
+==========================================================================================
+
+58. CÓD. LOCAL: 1937
+LOCAL: EEIEF MARIA JOSEFA DE MENESES
+ENDEREÇO: SÍTIO SERRINHA S/N
+BAIRRO: CAMPO ALEGRE
+CEP: 63138500
+APTOS NO LOCAL: 301
+QUANTIDADE DE SEÇÕES: 1
+SEÇÕES: 207
+APTOS POR SEÇÃO: 207 (301 aptos)
+
+==========================================================================================
+
+59. CÓD. LOCAL: 1945
+LOCAL: AGÊNCIA DOS CORREIOS DE CAMPO ALEGRE
+ENDEREÇO: AV. JOAQUIM ELIAS DA FRANCA S/N
+BAIRRO: CAMPO ALEGRE
+CEP: 63138500
+APTOS NO LOCAL: 302
+QUANTIDADE DE SEÇÕES: 1
+SEÇÕES: 209
+APTOS POR SEÇÃO: 209 (302 aptos)
+
+==========================================================================================
+
+60. CÓD. LOCAL: 1953
+LOCAL: ASSOCIAÇÃO UNIDOS PRÓ- MELHORAMENTO DO SÍTIO COQUEIRO
+ENDEREÇO: SÍTIO COQUEIRO
+BAIRRO: GRANGEIRO
+CEP: 63100000
+APTOS NO LOCAL: 397
+QUANTIDADE DE SEÇÕES: 2
+SEÇÕES: 210, 357
+APTOS POR SEÇÃO: 210 (309 aptos); 357 (88 aptos)
+
+==========================================================================================
+
+61. CÓD. LOCAL: 1961
+LOCAL: EEF PROF. JOSÉ DO VALE ARRAES FEITOSA
+ENDEREÇO: RUA VICENTE GREGÓRIO MARINHO, SN. N. SRA. DE FÁTIMA. BARRO BRANCO
+BAIRRO: MURITI
+CEP: 63100005
+APTOS NO LOCAL: 2.182
+QUANTIDADE DE SEÇÕES: 7
+SEÇÕES: 203, 211, 245, 281, 349, 359, 375
+APTOS POR SEÇÃO: 203 (308 aptos); 211 (312 aptos); 245 (315 aptos); 281 (311 aptos); 349 (311 aptos); 359 (316 aptos); 375 (309 aptos)
+
+==========================================================================================
+
+62. CÓD. LOCAL: 1970
+LOCAL: UNIDADE BÁSICA DE SAÚDE MARIA DUARTE
+ENDEREÇO: RODOVIA - CE-292, S/N - GUARIBAS
+BAIRRO: CAMPO ALEGRE
+CEP: 63138500
+APTOS NO LOCAL: 371
+QUANTIDADE DE SEÇÕES: 2
+SEÇÕES: 212, 240
+APTOS POR SEÇÃO: 212 (185 aptos); 240 (186 aptos)
+
+==========================================================================================
+
+63. CÓD. LOCAL: 1988
+LOCAL: ASSOCIAÇÃO COMUNITÁRIA DOS MORADORES DO SÍTIO SERRARIA
+ENDEREÇO: SÍTIO SERRARIA S/N
+BAIRRO: BELA VISTA
+CEP: 63139500
+APTOS NO LOCAL: 271
+QUANTIDADE DE SEÇÕES: 1
+SEÇÕES: 213
+APTOS POR SEÇÃO: 213 (271 aptos)
+
+==========================================================================================
+
+64. CÓD. LOCAL: 1996
+LOCAL: EEIEF JOSÉ PEIXOTO DE LIMA
+ENDEREÇO: SÍTIO SANTO ANTÔNIO, SN
+BAIRRO: SANTA FÉ
+CEP: 63136000
+APTOS NO LOCAL: 584
+QUANTIDADE DE SEÇÕES: 2
+SEÇÕES: 223, 333
+APTOS POR SEÇÃO: 223 (307 aptos); 333 (277 aptos)
+
+==========================================================================================
+
+65. CÓD. LOCAL: 2003
+LOCAL: EEIEF JOSEFA SALVIANO DE ALMEIDA
+ENDEREÇO: SÍTIO CRUZEIRO
+BAIRRO: SANTA FÉ
+CEP: 63136000
+APTOS NO LOCAL: 746
+QUANTIDADE DE SEÇÕES: 3
+SEÇÕES: 224, 312, 378
+APTOS POR SEÇÃO: 224 (324 aptos); 312 (310 aptos); 378 (112 aptos)
+
+==========================================================================================
+
+66. CÓD. LOCAL: 2011
+LOCAL: EEIEF OTACÍLIO CORREIA LIMA
+ENDEREÇO: ROD. VICENTE TELES, SN - SÍTIO PALMEIRINHA DOS CORREIA
+BAIRRO: SANTA FÉ
+CEP: 63136000
+APTOS NO LOCAL: 459
+QUANTIDADE DE SEÇÕES: 2
+SEÇÕES: 225, 331
+APTOS POR SEÇÃO: 225 (253 aptos); 331 (206 aptos)
+
+==========================================================================================
+
+67. CÓD. LOCAL: 2038
+LOCAL: EEIEF JOÃO LEANDRO CORREIA
+ENDEREÇO: SÍTIO BOQUEIRÃO
+BAIRRO: DOM QUINTINO
+CEP: 63137000
+APTOS NO LOCAL: 517
+QUANTIDADE DE SEÇÕES: 2
+SEÇÕES: 217, 330
+APTOS POR SEÇÃO: 217 (259 aptos); 330 (258 aptos)
+
+==========================================================================================
+
+68. CÓD. LOCAL: 2046
+LOCAL: EEIEF MARIA SANTINA DA CONCEIÇÃO
+ENDEREÇO: SÍTIO PALMEIRINHA DOS VILAR S/N
+BAIRRO: PONTA DA SERRA
+CEP: 63138000
+APTOS NO LOCAL: 429
+QUANTIDADE DE SEÇÕES: 2
+SEÇÕES: 218, 352
+APTOS POR SEÇÃO: 218 (291 aptos); 352 (138 aptos)
+
+==========================================================================================
+
+69. CÓD. LOCAL: 2151
+LOCAL: EEIEF SINOBILINA PEIXOTO
+ENDEREÇO: RUA JOAQUIM PINHEIRO FILHO S/N. CONJUNTO PADRE CÍCERO
+BAIRRO: SÃO JOSÉ
+CEP: 63133480
+APTOS NO LOCAL: 1.230
+QUANTIDADE DE SEÇÕES: 4
+SEÇÕES: 248, 311, 334, 368
+APTOS POR SEÇÃO: 248 (309 aptos); 311 (306 aptos); 334 (306 aptos); 368 (309 aptos)
+
+==========================================================================================
+
+70. CÓD. LOCAL: 2160
+LOCAL: CRECHE NOSSA SENHORA DE FÁTIMA
+ENDEREÇO: RUA SATURNINO CANDEIA S/N - CONJ. HABIT. N. S. DE FÁTIMA
+BAIRRO: ALTO DA PENHA
+CEP: 63104130
+APTOS NO LOCAL: 685
+QUANTIDADE DE SEÇÕES: 2
+SEÇÕES: 244, 308
+APTOS POR SEÇÃO: 244 (340 aptos); 308 (345 aptos)
+
+==========================================================================================
+
+71. CÓD. LOCAL: 2178
+LOCAL: ASSOCIAÇÃO DOS PEQUENOS PRODUTORES RURAIS DO SÍTIO MINGUIRIBA
+ENDEREÇO: SERRA DA MINGUIRIBA
+BAIRRO: ÁREA RURAL DE CRATO
+CEP: 63135899
+APTOS NO LOCAL: 177
+QUANTIDADE DE SEÇÕES: 1
+SEÇÕES: 247
+APTOS POR SEÇÃO: 247 (177 aptos)
+
+==========================================================================================
+
+72. CÓD. LOCAL: 2186
+LOCAL: EEIEF PROFESSOR ÁLVARO RODRIGUES MADEIRA
+ENDEREÇO: RUA ANTONIO DE ALENCAR ARARIPE, SN. LOTEAMENTO FRANCA ALENCAR
+BAIRRO: FRANCA ALENCAR
+CEP: 63114100
+APTOS NO LOCAL: 445
+QUANTIDADE DE SEÇÕES: 2
+SEÇÕES: 262, 355
+APTOS POR SEÇÃO: 262 (287 aptos); 355 (158 aptos)
+
+==========================================================================================
+
+73. CÓD. LOCAL: 2194
+LOCAL: EEIEF QUINÔ DE BRITO
+ENDEREÇO: SÍTIO MONTE ALEGRE
+BAIRRO: PONTA DA SERRA
+CEP: 63138000
+APTOS NO LOCAL: 366
+QUANTIDADE DE SEÇÕES: 2
+SEÇÕES: 261, 366
+APTOS POR SEÇÃO: 261 (297 aptos); 366 (69 aptos)
+
+==========================================================================================
+
+74. CÓD. LOCAL: 2208
+LOCAL: CENTRO DE EDUCAÇÃO INFANTIL LICEU DIOCESANO
+ENDEREÇO: RUA DOUTOR MANOEL MACEDO, 122
+BAIRRO: SEMINÁRIO
+CEP: 63113540
+APTOS NO LOCAL: 1.336
+QUANTIDADE DE SEÇÕES: 4
+SEÇÕES: 92, 158, 266, 290
+APTOS POR SEÇÃO: 92 (335 aptos); 158 (331 aptos); 266 (334 aptos); 290 (336 aptos)
+
+==========================================================================================
+
+75. CÓD. LOCAL: 2216
+LOCAL: EEMTI PREF. RAIMUNDO COELHO BEZERRA DE FARIAS
+ENDEREÇO: RUA FRANCISCO PIANCÓ LEITE S/N
+BAIRRO: NOVO CRATO
+CEP: 63113140
+APTOS NO LOCAL: 2.413
+QUANTIDADE DE SEÇÕES: 7
+SEÇÕES: 272, 293, 306, 321, 327, 337, 346
+APTOS POR SEÇÃO: 272 (346 aptos); 293 (346 aptos); 306 (341 aptos); 321 (345 aptos); 327 (348 aptos); 337 (343 aptos); 346 (344 aptos)
+
+==========================================================================================
+
+76. CÓD. LOCAL: 2232
+LOCAL: CRECHE AILZA GONÇALVES FELÍCIO
+ENDEREÇO: RUA JOSÉ HONOR DE BRITO, SN, PANTANAL
+BAIRRO: OSSIAN ARARIPE
+CEP: 63103160
+APTOS NO LOCAL: 662
+QUANTIDADE DE SEÇÕES: 2
+SEÇÕES: 267, 300
+APTOS POR SEÇÃO: 267 (333 aptos); 300 (329 aptos)
+
+==========================================================================================
+
+77. CÓD. LOCAL: 2240
+LOCAL: EEIEF SIMÃO PEDRO DA SILVA
+ENDEREÇO: SÍTIO LAGOINHA
+BAIRRO: PONTA DA SERRA
+CEP: 63138000
+APTOS NO LOCAL: 227
+QUANTIDADE DE SEÇÕES: 1
+SEÇÕES: 278
+APTOS POR SEÇÃO: 278 (227 aptos)
+
+==========================================================================================
+
+78. CÓD. LOCAL: 2259
+LOCAL: CENTRO DE EDUCAÇÃO INFANTIL MANOEL ALMINO
+ENDEREÇO: RUA DOUTOR RAIMUNDO NORÕES DE MILFONT, 552
+BAIRRO: VILA ALTA
+CEP: 63119240
+APTOS NO LOCAL: 814
+QUANTIDADE DE SEÇÕES: 3
+SEÇÕES: 275, 345, 362
+APTOS POR SEÇÃO: 275 (295 aptos); 345 (272 aptos); 362 (247 aptos)
+
+==========================================================================================
+
+79. CÓD. LOCAL: 2275
+LOCAL: EEIEF DOM VICENTE DE PAULO ARAÚJO MATOS
+ENDEREÇO: RUA JOSÉ AMÉRICO DE ALMEIDA, 100
+BAIRRO: OSSIAN ARARIPE
+CEP: 63106270
+APTOS NO LOCAL: 657
+QUANTIDADE DE SEÇÕES: 2
+SEÇÕES: 276, 341
+APTOS POR SEÇÃO: 276 (329 aptos); 341 (328 aptos)
+
+==========================================================================================
+
+80. CÓD. LOCAL: 2291
+LOCAL: CENTRO COMUNITÁRIO VILA PORFÍRIO
+ENDEREÇO: SÍTIO CATINGUEIRA
+BAIRRO: PONTA DA SERRA
+CEP: 63138000
+APTOS NO LOCAL: 121
+QUANTIDADE DE SEÇÕES: 1
+SEÇÕES: 268
+APTOS POR SEÇÃO: 268 (121 aptos)
+
+==========================================================================================
+
+81. CÓD. LOCAL: 2305
+LOCAL: EEIEF GOVERNADOR LUIZ DE GONZAGA DA FONSECA MOTA
+ENDEREÇO: RUA PLÍNIO CAVALCANTE S/N
+BAIRRO: ALTO DA PENHA
+CEP: 63104160
+APTOS NO LOCAL: 744
+QUANTIDADE DE SEÇÕES: 3
+SEÇÕES: 273, 325, 373
+APTOS POR SEÇÃO: 273 (304 aptos); 325 (299 aptos); 373 (141 aptos)
+
+==========================================================================================
+
+82. CÓD. LOCAL: 2313
+LOCAL: IGREJA NOSSA SENHORA DE FÁTIMA - MURITI
+ENDEREÇO: RUA KALORÉ, 302-A
+BAIRRO: MURITI
+CEP: 63132085
+APTOS NO LOCAL: 689
+QUANTIDADE DE SEÇÕES: 2
+SEÇÕES: 249, 270
+APTOS POR SEÇÃO: 249 (344 aptos); 270 (345 aptos)
+
+==========================================================================================
+
+83. CÓD. LOCAL: 2330
+LOCAL: EEIEF MARIA PIA BRÍGIDO E SILVA
+ENDEREÇO: RUA MARCOS MATHIAS S/N
+BAIRRO: PARQUE GRANGEIRO
+CEP: 63106140
+APTOS NO LOCAL: 1.204
+QUANTIDADE DE SEÇÕES: 4
+SEÇÕES: 279, 319, 336, 356
+APTOS POR SEÇÃO: 279 (303 aptos); 319 (302 aptos); 336 (300 aptos); 356 (299 aptos)
+
+==========================================================================================
+
+84. CÓD. LOCAL: 2348
+LOCAL: ASSOCIAÇÃO DOS MORADORES E AGRICULTORES DO SÍTIO BEBIDA NOVA
+ENDEREÇO: SÍTIO BEBIDA NOVA
+BAIRRO: BELMONTE
+CEP: 63100000
+APTOS NO LOCAL: 225
+QUANTIDADE DE SEÇÕES: 1
+SEÇÕES: 280
+APTOS POR SEÇÃO: 280 (225 aptos)
+
+==========================================================================================
+
+85. CÓD. LOCAL: 2356
+LOCAL: EEF ALDEGUNDES GOMES DE MATTOS
+ENDEREÇO: RUA JOÃO PEREIRA LUNA, 803
+BAIRRO: PARQUE RECREIO
+CEP: 63118190
+APTOS NO LOCAL: 1.359
+QUANTIDADE DE SEÇÕES: 4
+SEÇÕES: 277, 317, 340, 358
+APTOS POR SEÇÃO: 277 (339 aptos); 317 (341 aptos); 340 (338 aptos); 358 (341 aptos)
+
+==========================================================================================
+
+86. CÓD. LOCAL: 2372
+LOCAL: UNIDADE BÁSICA DE SAÚDE EDITE MARIANO
+ENDEREÇO: AVENIDA JOSÉ HORÁCIO PEQUENO S/N
+BAIRRO: ZACARIAS GONÇALVES
+CEP: 63110012
+APTOS NO LOCAL: 568
+QUANTIDADE DE SEÇÕES: 2
+SEÇÕES: 284, 338
+APTOS POR SEÇÃO: 284 (284 aptos); 338 (284 aptos)
+
+==========================================================================================
+
+87. CÓD. LOCAL: 2380
+LOCAL: EEM JOAQUIM VALDEVINO DE BRITO
+ENDEREÇO: RUA MARIA RIBEIRO DE MATOS S/N
+BAIRRO: PONTA DA SERRA
+CEP: 63138000
+APTOS NO LOCAL: 1.651
+QUANTIDADE DE SEÇÕES: 5
+SEÇÕES: 151, 174, 231, 283, 299
+APTOS POR SEÇÃO: 151 (331 aptos); 174 (327 aptos); 231 (330 aptos); 283 (332 aptos); 299 (331 aptos)
+
+==========================================================================================
+
+88. CÓD. LOCAL: 2399
+LOCAL: SALÃO PAROQUIAL DO SÍTIO PÁSCOA
+ENDEREÇO: SÍTIO PÁSCOA
+BAIRRO: CAMPO ALEGRE
+CEP: 63138500
+APTOS NO LOCAL: 240
+QUANTIDADE DE SEÇÕES: 1
+SEÇÕES: 298
+APTOS POR SEÇÃO: 298 (240 aptos)
+
+==========================================================================================
+
+89. CÓD. LOCAL: 2445
+LOCAL: UNIDADE BÁSICA DE SAÚDE VICÊNCIA GARRIDO (MURITI - II)
+ENDEREÇO: RUA MARIA CLOTILDES DA CONCEIÇÃO S/N
+BAIRRO: MURITI
+CEP: 63132060
+APTOS NO LOCAL: 340
+QUANTIDADE DE SEÇÕES: 1
+SEÇÕES: 162
+APTOS POR SEÇÃO: 162 (340 aptos)
+
+==========================================================================================
+
+90. CÓD. LOCAL: 2453
+LOCAL: CEI ELIZA JACINTO LOPES DE SOUSA
+ENDEREÇO: RUA PROJETADA 08, S/N - CONJUNTO MADRE FEITOSA/DISTRITO DE BELA VISTA
+BAIRRO: SÃO BENTO
+CEP: 63105000
+APTOS NO LOCAL: 201
+QUANTIDADE DE SEÇÕES: 1
+SEÇÕES: 374
+APTOS POR SEÇÃO: 374 (201 aptos)
+
+==========================================================================================
+
+91. CÓD. LOCAL: 2461
+LOCAL: CEI PROFESSORA SILVANY INÁCIO DE SOUSA
+ENDEREÇO: AVENIDA DAVI ARAÚJO NOBRE, S/N - FILEMON LIMAVERDE
+BAIRRO: NOSSA SENHORA DE FÁTIMA
+CEP: 63130477
+APTOS NO LOCAL: 437
+QUANTIDADE DE SEÇÕES: 2
+SEÇÕES: 376, 379
+APTOS POR SEÇÃO: 376 (335 aptos); 379 (102 aptos)
+
+==========================================================================================

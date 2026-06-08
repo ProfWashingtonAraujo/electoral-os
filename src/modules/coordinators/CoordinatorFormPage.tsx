@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { ArrowLeft, Save } from 'lucide-react'
 import { useCoordinatorsStore } from './useCoordinatorsStore'
+import { voterApi } from '../../api/voter.api'
 import { usePollingPlacesStore } from '../polling-places/usePollingPlacesStore'
 import { toast } from '../../components/feedback/Toast'
 import { ROUTES } from '../../constants/routes'
@@ -27,6 +28,8 @@ const schema = z.object({
 })
 type FormData = z.infer<typeof schema>
 
+const normalizeVoterRegistration = (value: string) => value.replace(/\D/g, '')
+
 export function CoordinatorFormPage() {
   const { id } = useParams()
   const isEdit = !!id
@@ -36,6 +39,7 @@ export function CoordinatorFormPage() {
 
   const existing = isEdit ? getById(id!) : undefined
   const [isLoadingCoordinator, setIsLoadingCoordinator] = useState(isEdit)
+  const [isLoadingVoterData, setIsLoadingVoterData] = useState(false)
 
   const [pollingPlaceSearch, setPollingPlaceSearch] = useState('')
   const { register, handleSubmit, reset, watch, setValue, formState: { errors, isSubmitting } } = useForm<FormData>({
@@ -104,6 +108,45 @@ export function CoordinatorFormPage() {
       }
     }
   }, [selectedPlace, setValue, watch])
+
+  const fillFromVoterRegistration = async (value: string) => {
+    const normalizedValue = normalizeVoterRegistration(value)
+    if (normalizedValue.length < 12) return
+
+    setIsLoadingVoterData(true)
+
+    try {
+      const response = await voterApi.getAll({ search: normalizedValue, page: 1, perPage: 20 })
+      const matchedVoter = response.items.find((voter) => normalizeVoterRegistration(voter.voterRegistration) === normalizedValue)
+
+      if (!matchedVoter) return
+
+      const currentName = watch('name')
+      const currentWhatsapp = watch('whatsapp')
+      const currentRegion = watch('region')
+      const currentNeighborhood = watch('neighborhood')
+
+      if (!currentName.trim()) setValue('name', matchedVoter.name, { shouldValidate: true })
+      if (!currentWhatsapp.trim()) setValue('whatsapp', matchedVoter.whatsapp, { shouldValidate: true })
+      if (!currentRegion.trim()) setValue('region', matchedVoter.region, { shouldValidate: true })
+      if (!currentNeighborhood.trim()) setValue('neighborhood', matchedVoter.neighborhood, { shouldValidate: true })
+
+      setValue('pollingPlaceId', matchedVoter.pollingPlaceId, { shouldValidate: true })
+      setValue('electoralZone', matchedVoter.electoralZone, { shouldValidate: true })
+      setValue('electoralSection', matchedVoter.electoralSection, { shouldValidate: true })
+
+      const matchedPlace = pollingPlaces.find((place) => place.id === matchedVoter.pollingPlaceId)
+      if (matchedPlace) {
+        setPollingPlaceSearch(`${matchedPlace.name} - ${matchedPlace.neighborhood}`)
+      }
+
+      toast({ type: 'info', title: 'Dados do eleitor carregados', message: matchedVoter.name })
+    } catch {
+      toast({ type: 'warning', title: 'Consulta indisponível', message: 'Não foi possível buscar os dados do eleitor agora' })
+    } finally {
+      setIsLoadingVoterData(false)
+    }
+  }
 
   const onSubmit = async (data: FormData) => {
     const uppercaseData = {
@@ -232,7 +275,16 @@ export function CoordinatorFormPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1.5">Título de Eleitor *</label>
-              <input placeholder="1234 5678 9012" className={`form-input ${errors.voterRegistration ? 'error' : ''}`} {...register('voterRegistration')} />
+              <input
+                placeholder="1234 5678 9012"
+                className={`form-input ${errors.voterRegistration ? 'error' : ''}`}
+                {...register('voterRegistration', {
+                  onBlur: (event) => {
+                    void fillFromVoterRegistration(event.target.value)
+                  },
+                })}
+              />
+              {isLoadingVoterData && <p className="text-slate-500 text-xs mt-1">Buscando dados do eleitor...</p>}
               {errors.voterRegistration && <p className="text-red-500 text-xs mt-1">{errors.voterRegistration.message}</p>}
             </div>
             <div>

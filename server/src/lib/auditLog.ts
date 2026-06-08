@@ -32,8 +32,12 @@ export async function appendAuditLog(entry: Omit<AuditLogEntry, 'id' | 'createdA
     ...entry,
   };
 
-  await mkdir(dirname(logFilePath), { recursive: true });
-  await appendFile(logFilePath, `${JSON.stringify(payload)}\n`, 'utf8');
+  try {
+    await mkdir(dirname(logFilePath), { recursive: true });
+    await appendFile(logFilePath, `${JSON.stringify(payload)}\n`, 'utf8');
+  } catch (error) {
+    console.error('Failed to persist audit log entry:', error);
+  }
 
   return payload;
 }

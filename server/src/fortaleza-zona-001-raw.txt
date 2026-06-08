@@ -1,0 +1,502 @@
+LOCAIS DE VOTAÇÃO E RESPECTIVAS SEÇÕES
+1ª Zona Eleitoral - Fortaleza/CE
+Fonte: Sistema Elo / TRE-CE - atualizado em 04/06/2026 às 11:31:01
+
+RESUMO GERAL
+Locais de votação: 41
+Seções eleitorais: 354
+Eleitores aptos: 126.917
+
+==========================================================================================
+
+01. CÓD. LOCAL: 1287
+LOCAL: ESCOLA ESTADUAL ARQUITETO ROGERIO FROES
+ENDEREÇO: AVENIDA DAS GRAVIOLAS 1000
+BAIRRO: CIDADE 2000
+CEP: 60190600
+APTOS NO LOCAL: 7.092
+QUANTIDADE DE SEÇÕES: 18
+SEÇÕES: 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 577, 590, 607, 632, 770, 799, 830
+APTOS POR SEÇÃO: 136 (394 aptos); 137 (392 aptos); 138 (393 aptos); 139 (396 aptos); 140 (398 aptos); 141 (395 aptos); 142 (398 aptos); 143 (390 aptos); 144 (395 aptos); 145 (395 aptos); 146 (394 aptos); 577 (393 aptos); 590 (395 aptos); 607 (395 aptos); 632 (395 aptos); 770 (393 aptos); 799 (392 aptos); 830 (389 aptos)
+
+==========================================================================================
+
+02. CÓD. LOCAL: 1759
+LOCAL: ESCOLA ESTADUAL MATIAS BECK
+ENDEREÇO: RUA PROFESSORA AIDA BALAIO 38
+BAIRRO: MUCURIPE
+CEP: 60176390
+APTOS NO LOCAL: 3.924
+QUANTIDADE DE SEÇÕES: 10
+SEÇÕES: 343, 344, 345, 346, 496, 592, 710, 740, 778, 899
+APTOS POR SEÇÃO: 343 (392 aptos); 344 (394 aptos); 345 (396 aptos); 346 (393 aptos); 496 (395 aptos); 592 (391 aptos); 710 (392 aptos); 740 (390 aptos); 778 (393 aptos); 899 (388 aptos)
+
+==========================================================================================
+
+03. CÓD. LOCAL: 1767
+LOCAL: ESCOLA MUNICIPAL JOSE RAMOS TORRES DE MELO
+ENDEREÇO: AVENIDA DA ABOLIÇÃO 3984
+BAIRRO: MUCURIPE
+CEP: 60165082
+APTOS NO LOCAL: 3.950
+QUANTIDADE DE SEÇÕES: 11
+SEÇÕES: 347, 348, 349, 350, 351, 352, 353, 510, 554, 599, 628
+APTOS POR SEÇÃO: 347 (364 aptos); 348 (358 aptos); 349 (360 aptos); 350 (359 aptos); 351 (359 aptos); 352 (358 aptos); 353 (359 aptos); 510 (361 aptos); 554 (355 aptos); 599 (359 aptos); 628 (358 aptos)
+
+==========================================================================================
+
+04. CÓD. LOCAL: 1783
+LOCAL: ESCOLA ESTADUAL DRAGAO DO MAR
+ENDEREÇO: RUA UMARI S/N
+BAIRRO: MUCURIPE
+CEP: 60175280
+APTOS NO LOCAL: 3.017
+QUANTIDADE DE SEÇÕES: 8
+SEÇÕES: 354, 355, 356, 520, 761, 816, 851, 897
+APTOS POR SEÇÃO: 354 (381 aptos); 355 (378 aptos); 356 (378 aptos); 520 (372 aptos); 761 (377 aptos); 816 (374 aptos); 851 (376 aptos); 897 (381 aptos)
+
+==========================================================================================
+
+05. CÓD. LOCAL: 1791
+LOCAL: IATE CLUBE
+ENDEREÇO: AVENIDA DA ABOLIÇÃO 4813
+BAIRRO: MUCURIPE
+CEP: 60165082
+APTOS NO LOCAL: 2.235
+QUANTIDADE DE SEÇÕES: 6
+SEÇÕES: 357, 358, 359, 690, 691, 825
+APTOS POR SEÇÃO: 357 (371 aptos); 358 (365 aptos); 359 (365 aptos); 690 (378 aptos); 691 (384 aptos); 825 (372 aptos)
+
+==========================================================================================
+
+06. CÓD. LOCAL: 1880
+LOCAL: ESCOLA ESTADUAL DEPUTADO MANOEL RODRIGUES
+ENDEREÇO: RUA OLIVEIRA FILHO, 1576
+BAIRRO: VICENTE PINZON
+CEP: 60181810
+APTOS NO LOCAL: 2.894
+QUANTIDADE DE SEÇÕES: 8
+SEÇÕES: 386, 387, 388, 389, 866, 872, 938, 945
+APTOS POR SEÇÃO: 386 (386 aptos); 387 (388 aptos); 388 (390 aptos); 389 (393 aptos); 866 (379 aptos); 872 (396 aptos); 938 (385 aptos); 945 (177 aptos)
+
+==========================================================================================
+
+07. CÓD. LOCAL: 1899
+LOCAL: CIES AIDA SANTOS
+ENDEREÇO: AVENIDA TRAJANO DE MEDEIROS 813
+BAIRRO: VICENTE PINZON
+CEP: 60182185
+APTOS NO LOCAL: 3.532
+QUANTIDADE DE SEÇÕES: 9
+SEÇÕES: 391, 392, 393, 394, 395, 546, 662, 717, 942
+APTOS POR SEÇÃO: 391 (394 aptos); 392 (396 aptos); 393 (390 aptos); 394 (397 aptos); 395 (394 aptos); 546 (390 aptos); 662 (390 aptos); 717 (390 aptos); 942 (391 aptos)
+
+==========================================================================================
+
+08. CÓD. LOCAL: 1902
+LOCAL: ESCOLA MUNICIPAL SAO VICENTE DE PAULO
+ENDEREÇO: AVENIDA ZEZE DIOGO 1247
+BAIRRO: CAIS DO PORTO
+CEP: 60180000
+APTOS NO LOCAL: 1.533
+QUANTIDADE DE SEÇÕES: 5
+SEÇÕES: 396, 397, 398, 399, 400
+APTOS POR SEÇÃO: 396 (304 aptos); 397 (310 aptos); 398 (306 aptos); 399 (308 aptos); 400 (305 aptos)
+
+==========================================================================================
+
+09. CÓD. LOCAL: 2046
+LOCAL: ESCOLA ESTADUAL BARBARA DE ALENCAR
+ENDEREÇO: RUA PEDRO RUFINO 38
+BAIRRO: VARJOTA
+CEP: 60175100
+APTOS NO LOCAL: 3.706
+QUANTIDADE DE SEÇÕES: 11
+SEÇÕES: 50, 461, 462, 463, 464, 465, 466, 467, 498, 641, 642
+APTOS POR SEÇÃO: 50 (338 aptos); 461 (339 aptos); 462 (338 aptos); 463 (336 aptos); 464 (335 aptos); 465 (337 aptos); 466 (335 aptos); 467 (339 aptos); 498 (335 aptos); 641 (337 aptos); 642 (337 aptos)
+
+==========================================================================================
+
+10. CÓD. LOCAL: 2054
+LOCAL: ESCOLA ESTADUAL MARIA JOSE MEDEIROS
+ENDEREÇO: RUA DESEMBARGADOR LAURO NOGUEIRA 1240
+BAIRRO: PAPICU
+CEP: 60175055
+APTOS NO LOCAL: 5.101
+QUANTIDADE DE SEÇÕES: 13
+SEÇÕES: 459, 460, 468, 469, 470, 471, 581, 639, 650, 779, 801, 829, 852
+APTOS POR SEÇÃO: 459 (392 aptos); 460 (392 aptos); 468 (391 aptos); 469 (394 aptos); 470 (390 aptos); 471 (394 aptos); 581 (392 aptos); 639 (394 aptos); 650 (393 aptos); 779 (398 aptos); 801 (386 aptos); 829 (394 aptos); 852 (391 aptos)
+
+==========================================================================================
+
+11. CÓD. LOCAL: 2062
+LOCAL: ESCOLA MIGUEL FIALHO - ANTIGO PADRE JOSÉ NILSON
+ENDEREÇO: RUA CORONEL MANUEL JESUÍNO 225
+BAIRRO: MUCURIPE
+CEP: 60175270
+APTOS NO LOCAL: 1.467
+QUANTIDADE DE SEÇÕES: 5
+SEÇÕES: 336, 337, 472, 473, 474
+APTOS POR SEÇÃO: 336 (298 aptos); 337 (301 aptos); 472 (287 aptos); 473 (297 aptos); 474 (284 aptos)
+
+==========================================================================================
+
+12. CÓD. LOCAL: 2305
+LOCAL: ESCOLA ESTADUAL MURILO BORGES
+ENDEREÇO: RUA DO ENTARDECER 90
+BAIRRO: VICENTE PINZON
+CEP: 60181190
+APTOS NO LOCAL: 3.548
+QUANTIDADE DE SEÇÕES: 9
+SEÇÕES: 516, 613, 638, 668, 679, 757, 807, 898, 907
+APTOS POR SEÇÃO: 516 (397 aptos); 613 (397 aptos); 638 (402 aptos); 668 (395 aptos); 679 (396 aptos); 757 (403 aptos); 807 (393 aptos); 898 (377 aptos); 907 (388 aptos)
+
+==========================================================================================
+
+13. CÓD. LOCAL: 2313
+LOCAL: ESCOLA ESTADUAL MAESTRO ELIAZAR DE CARVALHO
+ENDEREÇO: RUA FRANCISCO ALVES PEREIRA 349
+BAIRRO: CAIS DO PORTO
+CEP: 60180720
+APTOS NO LOCAL: 1.353
+QUANTIDADE DE SEÇÕES: 4
+SEÇÕES: 338, 339, 340, 341
+APTOS POR SEÇÃO: 338 (336 aptos); 339 (341 aptos); 340 (336 aptos); 341 (340 aptos)
+
+==========================================================================================
+
+14. CÓD. LOCAL: 2372
+LOCAL: FACULDADE FARIAS BRITO - CASTRO MONTE
+ENDEREÇO: RUA CASTRO MONTE 1364
+BAIRRO: VARJOTA
+CEP: 60175230
+APTOS NO LOCAL: 9.053
+QUANTIDADE DE SEÇÕES: 26
+SEÇÕES: 81, 82, 83, 84, 85, 86, 500, 552, 631, 637, 644, 654, 676, 697, 714, 715, 730, 756, 838, 878, 893, 902, 909, 916, 920, 927
+APTOS POR SEÇÃO: 81 (348 aptos); 82 (349 aptos); 83 (347 aptos); 84 (348 aptos); 85 (349 aptos); 86 (349 aptos); 500 (344 aptos); 552 (346 aptos); 631 (348 aptos); 637 (347 aptos); 644 (348 aptos); 654 (345 aptos); 676 (349 aptos); 697 (349 aptos); 714 (346 aptos); 715 (348 aptos); 730 (346 aptos); 756 (347 aptos); 838 (346 aptos); 878 (348 aptos); 893 (348 aptos); 902 (346 aptos); 909 (355 aptos); 916 (356 aptos); 920 (354 aptos); 927 (347 aptos)
+
+==========================================================================================
+
+15. CÓD. LOCAL: 2534
+LOCAL: ESCOLA MUNICIPAL PROF BELARMINA CAMPOS
+ENDEREÇO: RUA MANOEL RODRIGUES MONTEIRO, 840
+BAIRRO: VICENTE PINZON
+CEP: 60181805
+APTOS NO LOCAL: 3.817
+QUANTIDADE DE SEÇÕES: 10
+SEÇÕES: 685, 711, 733, 755, 795, 805, 827, 900, 908, 922
+APTOS POR SEÇÃO: 685 (379 aptos); 711 (384 aptos); 733 (381 aptos); 755 (383 aptos); 795 (383 aptos); 805 (377 aptos); 827 (383 aptos); 900 (383 aptos); 908 (384 aptos); 922 (380 aptos)
+
+==========================================================================================
+
+16. CÓD. LOCAL: 2585
+LOCAL: ESCOLA MUNICIPAL PROF. GODOFREDO DE CASTRO FILHO
+ENDEREÇO: AVENIDA JOSÉ SABÓIA 905
+BAIRRO: CAIS DO PORTO
+CEP: 60180480
+APTOS NO LOCAL: 2.200
+QUANTIDADE DE SEÇÕES: 7
+SEÇÕES: 401, 402, 727, 731, 749, 860, 918
+APTOS POR SEÇÃO: 401 (316 aptos); 402 (317 aptos); 727 (311 aptos); 731 (315 aptos); 749 (316 aptos); 860 (310 aptos); 918 (315 aptos)
+
+==========================================================================================
+
+17. CÓD. LOCAL: 2615
+LOCAL: COLEGIO ESPACO ABERTO - BENTO ALBUQUERQUE
+ENDEREÇO: RUA BENTO ALBUQUERQUE 1671
+BAIRRO: PAPICU
+CEP: 60190080
+APTOS NO LOCAL: 2.779
+QUANTIDADE DE SEÇÕES: 7
+SEÇÕES: 724, 726, 792, 809, 839, 853, 929
+APTOS POR SEÇÃO: 724 (397 aptos); 726 (396 aptos); 792 (399 aptos); 809 (398 aptos); 839 (399 aptos); 853 (396 aptos); 929 (394 aptos)
+
+==========================================================================================
+
+18. CÓD. LOCAL: 2640
+LOCAL: ESCOLA MUNICIPAL FREI TITO DE ALENCAR LIMA
+ENDEREÇO: AVENIDA DIOGUINHO 5927
+BAIRRO: VICENTE PINZON
+CEP: 60182001
+APTOS NO LOCAL: 4.094
+QUANTIDADE DE SEÇÕES: 11
+SEÇÕES: 593, 694, 754, 763, 794, 810, 836, 855, 865, 873, 914
+APTOS POR SEÇÃO: 593 (375 aptos); 694 (370 aptos); 754 (373 aptos); 763 (369 aptos); 794 (373 aptos); 810 (375 aptos); 836 (368 aptos); 855 (374 aptos); 865 (372 aptos); 873 (369 aptos); 914 (376 aptos)
+
+==========================================================================================
+
+19. CÓD. LOCAL: 2690
+LOCAL: COLEGIO ANTARES - SANTOS DUMONT
+ENDEREÇO: AVENIDA SANTOS DUMONT 3777
+BAIRRO: ALDEOTA
+CEP: 60150162
+APTOS NO LOCAL: 3.161
+QUANTIDADE DE SEÇÕES: 8
+SEÇÕES: 40, 41, 42, 768, 800, 845, 879, 883
+APTOS POR SEÇÃO: 40 (395 aptos); 41 (397 aptos); 42 (394 aptos); 768 (397 aptos); 800 (397 aptos); 845 (394 aptos); 879 (393 aptos); 883 (394 aptos)
+
+==========================================================================================
+
+20. CÓD. LOCAL: 2747
+LOCAL: COLEGIO ANTARES - OCELO PINHEIRO
+ENDEREÇO: RUA PROFESSOR OCELO PINHEIRO 101
+BAIRRO: PAPICU
+CEP: 60175585
+APTOS NO LOCAL: 4.754
+QUANTIDADE DE SEÇÕES: 12
+SEÇÕES: 484, 485, 486, 780, 818, 842, 848, 859, 876, 884, 890, 894
+APTOS POR SEÇÃO: 484 (396 aptos); 485 (398 aptos); 486 (395 aptos); 780 (397 aptos); 818 (398 aptos); 842 (398 aptos); 848 (398 aptos); 859 (392 aptos); 876 (396 aptos); 884 (399 aptos); 890 (394 aptos); 894 (393 aptos)
+
+==========================================================================================
+
+21. CÓD. LOCAL: 2755
+LOCAL: ESCOLA MUNICIPAL ODNILRA CRUZ MOREIRA
+ENDEREÇO: AVENIDA DAS ADENANTERAS 800
+BAIRRO: CIDADE 2000
+CEP: 60190560
+APTOS NO LOCAL: 2.478
+QUANTIDADE DE SEÇÕES: 7
+SEÇÕES: 819, 847, 861, 877, 888, 911, 940
+APTOS POR SEÇÃO: 819 (365 aptos); 847 (359 aptos); 861 (353 aptos); 877 (348 aptos); 888 (352 aptos); 911 (352 aptos); 940 (349 aptos)
+
+==========================================================================================
+
+22. CÓD. LOCAL: 2763
+LOCAL: ESCOLA MUNICIPAL DOM ALOISIO LORSCHEIDER
+ENDEREÇO: RUA JULIO SILVA, 450
+BAIRRO: PRAIA DO FUTURO II
+CEP: 60182430
+APTOS NO LOCAL: 2.775
+QUANTIDADE DE SEÇÕES: 8
+SEÇÕES: 390, 586, 719, 814, 826, 833, 834, 950
+APTOS POR SEÇÃO: 390 (396 aptos); 586 (388 aptos); 719 (398 aptos); 814 (394 aptos); 826 (390 aptos); 833 (389 aptos); 834 (395 aptos); 950 (25 aptos)
+
+==========================================================================================
+
+23. CÓD. LOCAL: 2780
+LOCAL: ESCOLA MUNICIPAL CONSUELO AMORA
+ENDEREÇO: AV. DOS JANGADEIROS, 577
+BAIRRO: MUCURIPE
+CEP: 60175440
+APTOS NO LOCAL: 1.146
+QUANTIDADE DE SEÇÕES: 3
+SEÇÕES: 821, 828, 857
+APTOS POR SEÇÃO: 821 (380 aptos); 828 (383 aptos); 857 (383 aptos)
+
+==========================================================================================
+
+24. CÓD. LOCAL: 2810
+LOCAL: COLEGIO ARI DE SA - MONSENHOR CATAO
+ENDEREÇO: RUA MONSENHOR CATAO, 1655
+BAIRRO: ALDEOTA
+CEP: 60175010
+APTOS NO LOCAL: 5.695
+QUANTIDADE DE SEÇÕES: 15
+SEÇÕES: 822, 837, 850, 856, 862, 868, 871, 875, 882, 887, 895, 904, 925, 941, 947
+APTOS POR SEÇÃO: 822 (393 aptos); 837 (391 aptos); 850 (396 aptos); 856 (392 aptos); 862 (391 aptos); 868 (391 aptos); 871 (392 aptos); 875 (392 aptos); 882 (392 aptos); 887 (393 aptos); 895 (395 aptos); 904 (387 aptos); 925 (393 aptos); 941 (393 aptos); 947 (204 aptos)
+
+==========================================================================================
+
+25. CÓD. LOCAL: 2852
+LOCAL: COLEGIO FARIAS BRITO - PRÉ UNIVERSITARIO - JULIO ABREU
+ENDEREÇO: AVENIDA JULIO ABREU, 284
+BAIRRO: VARJOTA
+CEP: 60160240
+APTOS NO LOCAL: 2.366
+QUANTIDADE DE SEÇÕES: 6
+SEÇÕES: 479, 480, 481, 482, 483, 930
+APTOS POR SEÇÃO: 479 (396 aptos); 480 (396 aptos); 481 (393 aptos); 482 (394 aptos); 483 (394 aptos); 930 (393 aptos)
+
+==========================================================================================
+
+26. CÓD. LOCAL: 2860
+LOCAL: LABOMAR - UFC
+ENDEREÇO: AV. ABOLIÇÃO, 3207
+BAIRRO: MEIRELES
+CEP: 60135178
+APTOS NO LOCAL: 1.803
+QUANTIDADE DE SEÇÕES: 5
+SEÇÕES: 364, 365, 366, 570, 937
+APTOS POR SEÇÃO: 364 (376 aptos); 365 (374 aptos); 366 (379 aptos); 570 (383 aptos); 937 (291 aptos)
+
+==========================================================================================
+
+27. CÓD. LOCAL: 2895
+LOCAL: ESCOLA PROFISSIONAL MARIA ANGELA DA SILVEIRA BORGES
+ENDEREÇO: RUA PINTOR ANTONIO BANDEIRA, S/N
+BAIRRO: VICENTE PINZON
+CEP: 60182304
+APTOS NO LOCAL: 4.242
+QUANTIDADE DE SEÇÕES: 13
+SEÇÕES: 382, 383, 384, 385, 589, 616, 664, 743, 796, 820, 844, 874, 901
+APTOS POR SEÇÃO: 382 (329 aptos); 383 (327 aptos); 384 (328 aptos); 385 (330 aptos); 589 (327 aptos); 616 (324 aptos); 664 (332 aptos); 743 (327 aptos); 796 (325 aptos); 820 (323 aptos); 844 (318 aptos); 874 (324 aptos); 901 (328 aptos)
+
+==========================================================================================
+
+28. CÓD. LOCAL: 2933
+LOCAL: CRECHE RACHEL GUIMARÃES MARTINS BARBOSA
+ENDEREÇO: VIA DE PEDRESTE LESTE OESTE 01
+BAIRRO: CAIS DO PORTO
+CEP: 60180748
+APTOS NO LOCAL: 3.323
+QUANTIDADE DE SEÇÕES: 9
+SEÇÕES: 753, 797, 831, 846, 858, 870, 886, 892, 923
+APTOS POR SEÇÃO: 753 (365 aptos); 797 (365 aptos); 831 (369 aptos); 846 (373 aptos); 858 (367 aptos); 870 (370 aptos); 886 (372 aptos); 892 (367 aptos); 923 (375 aptos)
+
+==========================================================================================
+
+29. CÓD. LOCAL: 2941
+LOCAL: ESCOLA DE GASTRONOMIA SOCIAL IVENS DIAS BRANCO
+ENDEREÇO: RUA MANUEL DIAS BRANCO,80
+BAIRRO: CAIS DO PORTO
+CEP: 60180635
+APTOS NO LOCAL: 1.984
+QUANTIDADE DE SEÇÕES: 6
+SEÇÕES: 342, 488, 572, 623, 653, 935
+APTOS POR SEÇÃO: 342 (332 aptos); 488 (330 aptos); 572 (331 aptos); 623 (335 aptos); 653 (332 aptos); 935 (324 aptos)
+
+==========================================================================================
+
+30. CÓD. LOCAL: 2950
+LOCAL: COLÉGIO KENNEDY
+ENDEREÇO: AVENIDA ENGENHEIRO SANTANA JÚNIOR,58
+BAIRRO: PAPICU
+CEP: 60175652
+APTOS NO LOCAL: 518
+QUANTIDADE DE SEÇÕES: 2
+SEÇÕES: 936, 943
+APTOS POR SEÇÃO: 936 (389 aptos); 943 (129 aptos)
+
+==========================================================================================
+
+31. CÓD. LOCAL: 2976
+LOCAL: EEFM - HELENITA MOTA
+ENDEREÇO: RUA AMANCIO FILOMENO,720
+BAIRRO: CAIS DO PORTO
+CEP: 60180320
+APTOS NO LOCAL: 2.488
+QUANTIDADE DE SEÇÕES: 8
+SEÇÕES: 489, 587, 609, 622, 636, 702, 921, 933
+APTOS POR SEÇÃO: 489 (308 aptos); 587 (312 aptos); 609 (311 aptos); 622 (312 aptos); 636 (310 aptos); 702 (309 aptos); 921 (316 aptos); 933 (310 aptos)
+
+==========================================================================================
+
+32. CÓD. LOCAL: 2984
+LOCAL: UNINTA - FACULDADE UNINTA FORTALEZA
+ENDEREÇO: RUA VILEBALDO AGUIAR,133
+BAIRRO: COCÓ
+CEP: 60192010
+APTOS NO LOCAL: 8.483
+QUANTIDADE DE SEÇÕES: 22
+SEÇÕES: 33, 34, 35, 36, 37, 38, 39, 505, 604, 619, 670, 813, 815, 889, 906, 910, 913, 917, 924, 928, 931, 932
+APTOS POR SEÇÃO: 33 (388 aptos); 34 (386 aptos); 35 (386 aptos); 36 (388 aptos); 37 (384 aptos); 38 (382 aptos); 39 (385 aptos); 505 (387 aptos); 604 (383 aptos); 619 (386 aptos); 670 (381 aptos); 813 (387 aptos); 815 (387 aptos); 889 (388 aptos); 906 (385 aptos); 910 (384 aptos); 913 (386 aptos); 917 (387 aptos); 924 (386 aptos); 928 (388 aptos); 931 (385 aptos); 932 (384 aptos)
+
+==========================================================================================
+
+33. CÓD. LOCAL: 2992
+LOCAL: ESCOLA MUNICIPAL COLONIA Z-8
+ENDEREÇO: RUA MANOEL JESUINO,370
+BAIRRO: VARJOTA
+CEP: 60175270
+APTOS NO LOCAL: 1.082
+QUANTIDADE DE SEÇÕES: 4
+SEÇÕES: 526, 567, 824, 934
+APTOS POR SEÇÃO: 526 (307 aptos); 567 (303 aptos); 824 (298 aptos); 934 (174 aptos)
+
+==========================================================================================
+
+34. CÓD. LOCAL: 3000
+LOCAL: EMTI VEREADOR ALBERTO GOMES DE QUEIROZ
+ENDEREÇO: AV. ZEZÉ DIOGO, 782
+BAIRRO: CAIS DO PORTO
+CEP: 60180012
+APTOS NO LOCAL: 3.170
+QUANTIDADE DE SEÇÕES: 10
+SEÇÕES: 403, 404, 550, 578, 658, 721, 752, 766, 806, 939
+APTOS POR SEÇÃO: 403 (301 aptos); 404 (308 aptos); 550 (335 aptos); 578 (332 aptos); 658 (325 aptos); 721 (323 aptos); 752 (327 aptos); 766 (331 aptos); 806 (330 aptos); 939 (258 aptos)
+
+==========================================================================================
+
+35. CÓD. LOCAL: 3018
+LOCAL: CITS - CENTRO DE INCLUSÃO TECNOLÓGICO E SOCIAL
+ENDEREÇO: RUA DO ENTARDECER, 160
+BAIRRO: VICENTE PINZON
+CEP: 60181190
+APTOS NO LOCAL: 135
+QUANTIDADE DE SEÇÕES: 1
+SEÇÕES: 944
+APTOS POR SEÇÃO: 944 (135 aptos)
+
+==========================================================================================
+
+36. CÓD. LOCAL: 3026
+LOCAL: CRECHE WILMA MARIA DE VASCONCELOS LEOPÉRCIO
+ENDEREÇO: RUA DR. FRANCISCO MATOS, 123
+BAIRRO: PAPICU
+CEP: 60176135
+APTOS NO LOCAL: 79
+QUANTIDADE DE SEÇÕES: 1
+SEÇÕES: 946
+APTOS POR SEÇÃO: 946 (79 aptos)
+
+==========================================================================================
+
+37. CÓD. LOCAL: 3034
+LOCAL: CRECHE PAULO CESAR FEITOSA
+ENDEREÇO: RUA SOLON CARVALHO,154
+BAIRRO: CIDADE 2000
+CEP: 60190460
+APTOS NO LOCAL: 155
+QUANTIDADE DE SEÇÕES: 1
+SEÇÕES: 948
+APTOS POR SEÇÃO: 948 (155 aptos)
+
+==========================================================================================
+
+38. CÓD. LOCAL: 3042
+LOCAL: COLÉGIO CÍVICO MILITAR BATALHA DO RIACHUELO
+ENDEREÇO: R. E, 100 - MANUEL DIAS BRANCO
+BAIRRO: MANUEL DIAS BRANCO
+CEP: 60191050
+APTOS NO LOCAL: 9.014
+QUANTIDADE DE SEÇÕES: 26
+SEÇÕES: 665, 671, 680, 681, 704, 729, 736, 764, 788, 802, 832, 840, 854, 863, 869, 881, 885, 891, 896, 903, 905, 912, 915, 919, 926, 949
+APTOS POR SEÇÃO: 665 (358 aptos); 671 (363 aptos); 680 (359 aptos); 681 (359 aptos); 704 (359 aptos); 729 (360 aptos); 736 (361 aptos); 764 (359 aptos); 788 (361 aptos); 802 (360 aptos); 832 (359 aptos); 840 (357 aptos); 854 (358 aptos); 863 (361 aptos); 869 (359 aptos); 881 (360 aptos); 885 (353 aptos); 891 (358 aptos); 896 (358 aptos); 903 (360 aptos); 905 (364 aptos); 912 (361 aptos); 915 (363 aptos); 919 (360 aptos); 926 (359 aptos); 949 (25 aptos)
+
+==========================================================================================
+
+39. CÓD. LOCAL: 3093
+LOCAL: CREAS - MUCURIPE
+ENDEREÇO: RUA CORONEL MANOEL JESUÍNO,153
+BAIRRO: VARJOTA
+CEP: 60176180
+APTOS NO LOCAL: 608
+QUANTIDADE DE SEÇÕES: 2
+SEÇÕES: 475, 476
+APTOS POR SEÇÃO: 475 (308 aptos); 476 (300 aptos)
+
+==========================================================================================
+
+40. CÓD. LOCAL: 3107
+LOCAL: CENTRO DE REFERÊNCIAS SOBRE DROGAS - CRD
+ENDEREÇO: AV. DA ABOLIÇÃO, 3893
+BAIRRO: MEIRELES
+CEP: 60165085
+APTOS NO LOCAL: 922
+QUANTIDADE DE SEÇÕES: 3
+SEÇÕES: 477, 478, 513
+APTOS POR SEÇÃO: 477 (302 aptos); 478 (308 aptos); 513 (312 aptos)
+
+==========================================================================================
+
+41. CÓD. LOCAL: 3115
+LOCAL: CRECHE MARIA FERREIRA DIAS
+ENDEREÇO: AV. ZEZÉ DIOGO, 691
+BAIRRO: CAIS DO PORTO
+CEP: 60180000
+APTOS NO LOCAL: 1.241
+QUANTIDADE DE SEÇÕES: 4
+SEÇÕES: 360, 361, 362, 363
+APTOS POR SEÇÃO: 360 (319 aptos); 361 (313 aptos); 362 (310 aptos); 363 (299 aptos)
+
+==========================================================================================
