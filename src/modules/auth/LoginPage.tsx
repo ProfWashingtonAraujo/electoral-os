@@ -1,18 +1,17 @@
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { Eye, EyeOff, Zap, Shield, TrendingUp, Users, Lock, Mail, Loader2 } from 'lucide-react'
 import { useAuthStore } from './useAuthStore'
 import { ROUTES } from '../../constants/routes'
+import { toast } from '../../components/feedback/Toast'
 
 const schema = z.object({
   email: z.string().email('Informe um e-mail válido'),
   password: z.string().min(1, 'Senha é obrigatória'),
 })
-
-const SESSION_EXPIRED_REASON_KEY = 'electoral_session_expired_reason'
 
 type FormData = z.infer<typeof schema>
 
@@ -26,6 +25,7 @@ const features = [
 export function LoginPage() {
   const { login, isLoading } = useAuthStore()
   const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
   const [showPassword, setShowPassword] = useState(false)
   const [loginError, setLoginError] = useState('')
   const [sessionExpiredMessage, setSessionExpiredMessage] = useState('')
@@ -35,13 +35,18 @@ export function LoginPage() {
   })
 
   useEffect(() => {
-    const reason = sessionStorage.getItem(SESSION_EXPIRED_REASON_KEY)
+    const reason = searchParams.get('reason')
     if (reason === 'inactivity') {
-      setSessionExpiredMessage('Sua sessão expirou por inatividade. Faça login novamente para continuar.')
+      const message = 'Sua sessão expirou por inatividade. Faça login novamente para continuar.'
+      setSessionExpiredMessage(message)
+      toast({
+        type: 'warning',
+        title: 'Sessão expirada',
+        message,
+      })
+      navigate(ROUTES.LOGIN, { replace: true })
     }
-
-    sessionStorage.removeItem(SESSION_EXPIRED_REASON_KEY)
-  }, [])
+  }, [navigate, searchParams])
 
   const onSubmit = async (data: FormData) => {
     setLoginError('')

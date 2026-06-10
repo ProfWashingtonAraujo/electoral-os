@@ -3,6 +3,7 @@ import { RouterProvider } from 'react-router-dom'
 import { router } from './routes'
 import { ToastContainer } from './components/feedback/Toast'
 import { useAuthStore } from './modules/auth/useAuthStore'
+import { ROUTES } from './constants/routes'
 
 const LAST_ACTIVITY_KEY = 'electoral_last_activity'
 const INACTIVITY_LIMIT_MS = 25 * 60 * 1000
@@ -35,7 +36,8 @@ function App() {
       timeoutId = window.setTimeout(() => {
         const elapsed = Date.now() - readLastActivity()
         if (elapsed >= INACTIVITY_LIMIT_MS) {
-          logout('inactivity')
+          logout()
+          window.location.href = `${ROUTES.LOGIN}?reason=inactivity`
         } else {
           scheduleLogoutCheck()
         }
@@ -50,7 +52,8 @@ function App() {
 
     const checkInactivity = () => {
       if (Date.now() - readLastActivity() >= INACTIVITY_LIMIT_MS) {
-        logout('inactivity')
+        logout()
+        window.location.href = `${ROUTES.LOGIN}?reason=inactivity`
         return
       }
 
