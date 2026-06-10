@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -11,6 +11,9 @@ const schema = z.object({
   email: z.string().email('Informe um e-mail válido'),
   password: z.string().min(1, 'Senha é obrigatória'),
 })
+
+const SESSION_EXPIRED_REASON_KEY = 'electoral_session_expired_reason'
+
 type FormData = z.infer<typeof schema>
 
 // Static features, stats moved inside component for reactivity
@@ -25,13 +28,24 @@ export function LoginPage() {
   const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false)
   const [loginError, setLoginError] = useState('')
+  const [sessionExpiredMessage, setSessionExpiredMessage] = useState('')
 
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
     resolver: zodResolver(schema),
   })
 
+  useEffect(() => {
+    const reason = sessionStorage.getItem(SESSION_EXPIRED_REASON_KEY)
+    if (reason === 'inactivity') {
+      setSessionExpiredMessage('Sua sessão expirou por inatividade. Faça login novamente para continuar.')
+    }
+
+    sessionStorage.removeItem(SESSION_EXPIRED_REASON_KEY)
+  }, [])
+
   const onSubmit = async (data: FormData) => {
     setLoginError('')
+    setSessionExpiredMessage('')
     const ok = await login(data.email, data.password)
     if (ok) {
       const loggedUser = useAuthStore.getState().user
@@ -135,6 +149,12 @@ export function LoginPage() {
                 Acesse sua conta para continuar
               </p>
             </div>
+
+            {sessionExpiredMessage && (
+              <div className="mb-5 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+                {sessionExpiredMessage}
+              </div>
+            )}
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
               {/* Email */}

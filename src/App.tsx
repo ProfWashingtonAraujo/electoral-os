@@ -5,7 +5,7 @@ import { ToastContainer } from './components/feedback/Toast'
 import { useAuthStore } from './modules/auth/useAuthStore'
 
 const LAST_ACTIVITY_KEY = 'electoral_last_activity'
-const INACTIVITY_LIMIT_MS = 15 * 60 * 1000
+const INACTIVITY_LIMIT_MS = 25 * 60 * 1000
 
 function App() {
   const restoreSession = useAuthStore((s) => s.restoreSession)
@@ -35,7 +35,7 @@ function App() {
       timeoutId = window.setTimeout(() => {
         const elapsed = Date.now() - readLastActivity()
         if (elapsed >= INACTIVITY_LIMIT_MS) {
-          logout()
+          logout('inactivity')
         } else {
           scheduleLogoutCheck()
         }
@@ -50,7 +50,7 @@ function App() {
 
     const checkInactivity = () => {
       if (Date.now() - readLastActivity() >= INACTIVITY_LIMIT_MS) {
-        logout()
+        logout('inactivity')
         return
       }
 

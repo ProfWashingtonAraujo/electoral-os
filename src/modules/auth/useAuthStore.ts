@@ -3,6 +3,7 @@ import { authApi, type AuthUser } from '../../api/auth.api'
 
 const TOKEN_KEY = 'electoral_token'
 const USER_KEY = 'electoral_auth_user'
+const SESSION_EXPIRED_REASON_KEY = 'electoral_session_expired_reason'
 
 function clearLegacyAuthStorage() {
   localStorage.removeItem(TOKEN_KEY)
@@ -31,7 +32,7 @@ interface AuthState {
   isLoading: boolean
   error: string | null
   login: (email: string, password: string) => Promise<boolean>
-  logout: () => void
+  logout: (reason?: 'manual' | 'inactivity') => void
   restoreSession: () => Promise<void>
 }
 
@@ -48,6 +49,7 @@ export const useAuthStore = create<AuthState>((set) => ({
       const { token, user } = await authApi.login(email, password)
 
       clearLegacyAuthStorage()
+      sessionStorage.removeItem(SESSION_EXPIRED_REASON_KEY)
       sessionStorage.setItem(TOKEN_KEY, token)
       sessionStorage.setItem(USER_KEY, JSON.stringify(user))
 
@@ -59,7 +61,13 @@ export const useAuthStore = create<AuthState>((set) => ({
     }
   },
 
-  logout: () => {
+  logout: (reason = 'manual') => {
+    if (reason === 'inactivity') {
+      sessionStorage.setItem(SESSION_EXPIRED_REASON_KEY, reason)
+    } else {
+      sessionStorage.removeItem(SESSION_EXPIRED_REASON_KEY)
+    }
+
     sessionStorage.removeItem(TOKEN_KEY)
     sessionStorage.removeItem(USER_KEY)
     clearLegacyAuthStorage()
@@ -74,6 +82,7 @@ export const useAuthStore = create<AuthState>((set) => ({
       set({ user, token, isAuthenticated: true })
       sessionStorage.setItem(USER_KEY, JSON.stringify(user))
     } catch {
+      sessionStorage.removeItem(SESSION_EXPIRED_REASON_KEY)
       sessionStorage.removeItem(TOKEN_KEY)
       sessionStorage.removeItem(USER_KEY)
       clearLegacyAuthStorage()
