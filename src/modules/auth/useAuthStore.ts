@@ -4,9 +4,15 @@ import { authApi, type AuthUser } from '../../api/auth.api'
 const TOKEN_KEY = 'electoral_token'
 const USER_KEY = 'electoral_auth_user'
 
+function clearLegacyAuthStorage() {
+  localStorage.removeItem(TOKEN_KEY)
+  localStorage.removeItem(USER_KEY)
+}
+
 function loadUser(): AuthUser | null {
   try {
-    const raw = localStorage.getItem(USER_KEY)
+    clearLegacyAuthStorage()
+    const raw = sessionStorage.getItem(USER_KEY)
     return raw ? JSON.parse(raw) : null
   } catch {
     return null
@@ -14,7 +20,8 @@ function loadUser(): AuthUser | null {
 }
 
 function loadToken(): string | null {
-  return localStorage.getItem(TOKEN_KEY)
+  clearLegacyAuthStorage()
+  return sessionStorage.getItem(TOKEN_KEY)
 }
 
 interface AuthState {
@@ -23,7 +30,7 @@ interface AuthState {
   isAuthenticated: boolean
   isLoading: boolean
   error: string | null
-  login: (email: string, password: string, remember: boolean) => Promise<boolean>
+  login: (email: string, password: string) => Promise<boolean>
   logout: () => void
   restoreSession: () => Promise<void>
 }
@@ -35,15 +42,14 @@ export const useAuthStore = create<AuthState>((set) => ({
   isLoading: false,
   error: null,
 
-  login: async (email, password, remember) => {
+  login: async (email, password) => {
     set({ isLoading: true, error: null })
     try {
       const { token, user } = await authApi.login(email, password)
 
-      localStorage.setItem(TOKEN_KEY, token)
-      if (remember) {
-        localStorage.setItem(USER_KEY, JSON.stringify(user))
-      }
+      clearLegacyAuthStorage()
+      sessionStorage.setItem(TOKEN_KEY, token)
+      sessionStorage.setItem(USER_KEY, JSON.stringify(user))
 
       set({ user, token, isAuthenticated: true, isLoading: false })
       return true
@@ -54,8 +60,9 @@ export const useAuthStore = create<AuthState>((set) => ({
   },
 
   logout: () => {
-    localStorage.removeItem(TOKEN_KEY)
-    localStorage.removeItem(USER_KEY)
+    sessionStorage.removeItem(TOKEN_KEY)
+    sessionStorage.removeItem(USER_KEY)
+    clearLegacyAuthStorage()
     set({ user: null, token: null, isAuthenticated: false })
   },
 
@@ -64,11 +71,12 @@ export const useAuthStore = create<AuthState>((set) => ({
     if (!token) return
     try {
       const user = await authApi.me()
-      set({ user, isAuthenticated: true })
-      localStorage.setItem(USER_KEY, JSON.stringify(user))
+      set({ user, token, isAuthenticated: true })
+      sessionStorage.setItem(USER_KEY, JSON.stringify(user))
     } catch {
-      localStorage.removeItem(TOKEN_KEY)
-      localStorage.removeItem(USER_KEY)
+      sessionStorage.removeItem(TOKEN_KEY)
+      sessionStorage.removeItem(USER_KEY)
+      clearLegacyAuthStorage()
       set({ user: null, token: null, isAuthenticated: false })
     }
   },

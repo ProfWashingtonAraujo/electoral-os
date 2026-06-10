@@ -10,7 +10,6 @@ import { ROUTES } from '../../constants/routes'
 const schema = z.object({
   email: z.string().email('Informe um e-mail válido'),
   password: z.string().min(1, 'Senha é obrigatória'),
-  remember: z.boolean().optional(),
 })
 type FormData = z.infer<typeof schema>
 
@@ -29,12 +28,11 @@ export function LoginPage() {
 
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
     resolver: zodResolver(schema),
-    defaultValues: { remember: false },
   })
 
   const onSubmit = async (data: FormData) => {
     setLoginError('')
-    const ok = await login(data.email, data.password, data.remember ?? false)
+    const ok = await login(data.email, data.password)
     if (ok) {
       const loggedUser = useAuthStore.getState().user
       navigate(loggedUser?.role === 'digitador' ? ROUTES.VOTERS_NEW : ROUTES.DASHBOARD)
@@ -182,19 +180,6 @@ export function LoginPage() {
                 {errors.password && (
                   <p className="text-red-500 text-xs mt-1">{errors.password.message}</p>
                 )}
-              </div>
-
-              {/* Remember me */}
-              <div className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  id="remember"
-                  className="w-4 h-4 rounded border-slate-300 text-blue-600 cursor-pointer"
-                  {...register('remember')}
-                />
-                <label htmlFor="remember" className="text-sm text-slate-600 cursor-pointer">
-                  Manter-me conectado
-                </label>
               </div>
 
               {/* Error */}

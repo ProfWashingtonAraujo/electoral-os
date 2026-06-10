@@ -21,7 +21,7 @@ const api = axios.create({
 
 // Inject JWT on every request
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem('electoral_token');
+  const token = sessionStorage.getItem('electoral_token');
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
@@ -33,6 +33,8 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
+      sessionStorage.removeItem('electoral_token');
+      sessionStorage.removeItem('electoral_auth_user');
       localStorage.removeItem('electoral_token');
       localStorage.removeItem('electoral_auth_user');
       window.location.href = '/login';
