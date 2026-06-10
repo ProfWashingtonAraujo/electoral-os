@@ -157,7 +157,16 @@ export function LoginPage() {
 
             {sessionExpiredMessage && (
               <div className="mb-5 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
-                {sessionExpiredMessage}
+                <div className="flex items-start justify-between gap-3">
+                  <p>{sessionExpiredMessage}</p>
+                  <button
+                    type="button"
+                    onClick={() => document.getElementById('login-email')?.focus()}
+                    className="shrink-0 rounded-md bg-amber-600 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-amber-700"
+                  >
+                    Entrar novamente
+                  </button>
+                </div>
               </div>
             )}
 
@@ -170,6 +179,7 @@ export function LoginPage() {
                 <div className="relative">
                   <Mail size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
                   <input
+                    id="login-email"
                     type="email"
                     placeholder="Seu login ou e-mail"
                     className={`form-input pl-11 ${errors.email ? 'error' : ''}`}
