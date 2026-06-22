@@ -19,7 +19,7 @@ const schema = z.object({
 
   region: z.string().min(1, 'Selecione um município'),
   neighborhood: z.string().min(2, 'Informe o bairro'),
-  voterRegistration: z.string().min(12, 'Título inválido (ex: 1234 5678 9012)'),
+  voterRegistration: z.string().regex(/^\d{12}$/, 'O título deve ter 12 números corridos'),
   pollingPlaceId: z.string().min(1, 'Selecione o local de votação'),
   electoralZone: z.string().min(1, 'Informe a zona eleitoral'),
   electoralSection: z.string().min(1, 'Informe a seção eleitoral'),
@@ -123,7 +123,8 @@ export function CoordinatorFormPage() {
     setIsLoadingVoterData(true)
 
     try {
-      const searches = Array.from(new Set([rawValue, normalizedValue])).filter(Boolean)
+      const spacedValue = normalizedValue.replace(/(\d{4})(\d{4})(\d{4})/, '$1 $2 $3')
+      const searches = Array.from(new Set([rawValue, normalizedValue, spacedValue])).filter(Boolean)
       let matchedVoter: Awaited<ReturnType<typeof voterApi.getAll>>['items'][number] | undefined
 
       for (const search of searches) {
@@ -312,9 +313,13 @@ export function CoordinatorFormPage() {
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1.5">Título de Eleitor *</label>
               <input
-                placeholder="1234 5678 9012"
+                placeholder="123456789012"
                 className={`form-input ${errors.voterRegistration ? 'error' : ''}`}
-                {...register('voterRegistration')}
+                {...register('voterRegistration', {
+                  onChange: (event) => {
+                    event.target.value = event.target.value.replace(/\D/g, '').slice(0, 12);
+                  },
+                })}
               />
               {isLoadingVoterData && <p className="text-slate-500 text-xs mt-1">Buscando dados do eleitor...</p>}
               {!isLoadingVoterData && voterLookupMessage && <p className="text-amber-600 text-xs mt-1">{voterLookupMessage}</p>}

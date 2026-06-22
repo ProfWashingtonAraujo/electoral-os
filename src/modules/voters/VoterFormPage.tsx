@@ -20,7 +20,7 @@ const schema = z.object({
   address: z.string().min(5, 'Endereço inválido'),
   neighborhood: z.string().min(2, 'Informe o bairro'),
   region: z.string().min(1, 'Selecione um município'),
-  voterRegistration: z.string().min(12, 'Título inválido (ex: 1234 5678 9012)'),
+  voterRegistration: z.string().regex(/^\d{12}$/, 'O título deve ter 12 números corridos'),
   electoralZone: z.string().min(1, 'Informe a zona'),
   electoralSection: z.string().min(1, 'Informe a seção'),
   pollingPlaceId: z.string().min(1, 'Selecione o local de votação'),
@@ -190,7 +190,15 @@ export function VoterFormPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1.5">Título de Eleitor *</label>
-              <input placeholder="1234 5678 9012" className={inputCls(errors.voterRegistration)} {...register('voterRegistration')} />
+              <input
+                placeholder="123456789012"
+                className={inputCls(errors.voterRegistration)}
+                {...register('voterRegistration', {
+                  onChange: (event) => {
+                    event.target.value = event.target.value.replace(/\D/g, '').slice(0, 12);
+                  },
+                })}
+              />
               {errors.voterRegistration && <p className="text-red-500 text-xs mt-1">{errors.voterRegistration.message}</p>}
             </div>
             <div>
