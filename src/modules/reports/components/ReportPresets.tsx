@@ -1,38 +1,70 @@
-import { Filter, Users, UserCheck, Calendar } from 'lucide-react'
+import { Bookmark } from 'lucide-react'
 import type { ReportFiltersState } from '../reports.types'
-import { initialReportFilters } from '../reports.types'
 
-interface ReportPresetsProps {
+interface Preset {
+  label: string
+  description: string
+  filters: Partial<ReportFiltersState>
+}
+
+const PRESETS: Preset[] = [
+  {
+    label: 'Últimos 7 dias',
+    description: 'Eleitores cadastrados na última semana',
+    filters: { period: '7days' },
+  },
+  {
+    label: 'Última semana – Ouro',
+    description: 'Apoiadores Gold nos últimos 7 dias',
+    filters: { period: '7days', supportStatus: 'gold' },
+  },
+  {
+    label: 'Último mês',
+    description: 'Eleitores cadastrados nos últimos 30 dias',
+    filters: { period: '30days' },
+  },
+  {
+    label: 'Apoio Platinum',
+    description: 'Todos os eleitores com status Platinum',
+    filters: { supportStatus: 'platinum' },
+  },
+  {
+    label: 'Apoio Premium',
+    description: 'Todos os eleitores com status Premium',
+    filters: { supportStatus: 'premium' },
+  },
+  {
+    label: 'Cadastro Manual',
+    description: 'Eleitores cadastrados manualmente',
+    filters: {},
+  },
+]
+
+interface Props {
   onApplyPreset: (preset: Partial<ReportFiltersState>) => void
 }
 
-export function ReportPresets({ onApplyPreset }: ReportPresetsProps) {
-  const presets = [
-    { label: 'Todos os Dados', icon: Users, filter: initialReportFilters },
-    { label: 'Eleitores Gold (Fidelizados)', icon: UserCheck, filter: { ...initialReportFilters, supportStatus: 'gold' } },
-    { label: 'Cadastros Recentes (30 dias)', icon: Calendar, filter: { ...initialReportFilters, period: '30days' } },
-  ]
-
+export function ReportPresets({ onApplyPreset }: Props) {
   return (
-    <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide">
-      <div className="flex items-center gap-2 text-sm text-slate-500 font-medium mr-2">
-        <Filter size={16} />
-        <span className="whitespace-nowrap">Relatórios Prontos:</span>
+    <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5">
+      <div className="flex items-center gap-2 mb-4">
+        <Bookmark size={16} className="text-blue-600" />
+        <h2 className="text-sm font-semibold text-slate-700">Relatórios Prontos</h2>
       </div>
-      {presets.map((preset, index) => {
-        const Icon = preset.icon
-        return (
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+        {PRESETS.map((preset) => (
           <button
-            key={index}
-            onClick={() => onApplyPreset(preset.filter)}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 hover:border-blue-300 hover:bg-blue-50 text-slate-700 hover:text-blue-700 rounded-full text-xs font-medium transition-colors whitespace-nowrap"
+            key={preset.label}
+            onClick={() => onApplyPreset(preset.filters)}
+            className="text-left p-3 rounded-xl border border-slate-200 hover:border-blue-400 hover:bg-blue-50 transition-all group"
           >
-            <Icon size={13} />
-            {preset.label}
+            <p className="text-xs font-semibold text-slate-800 group-hover:text-blue-700 leading-tight">
+              {preset.label}
+            </p>
+            <p className="text-[11px] text-slate-400 mt-1 leading-tight">{preset.description}</p>
           </button>
-        )
-      })
-      }
+        ))}
+      </div>
     </div>
   )
 }

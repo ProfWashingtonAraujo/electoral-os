@@ -45,7 +45,7 @@ export function PollingPlaceDetailPage() {
         await remove(id!)
         toast({ type: 'success', title: 'Local excluído' })
         navigate(ROUTES.POLLING_PLACES)
-      } catch (error) {
+      } catch {
         toast({ type: 'error', title: 'Erro ao excluir', message: 'Não foi possível excluir o local' })
       }
     }

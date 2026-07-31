@@ -1,4 +1,5 @@
-import { useState } from 'react'
+/* eslint-disable react-refresh/only-export-components */
+import { useEffect, useState } from 'react'
 import { CheckCircle2, XCircle, Info, AlertTriangle, X } from 'lucide-react'
 
 export interface ToastOptions {
@@ -28,14 +29,20 @@ const iconMap = {
 export function ToastContainer() {
   const [toasts, setToasts] = useState<ToastItem[]>([])
 
-  addToastFn = (opts: ToastOptions) => {
-    const id = Math.random().toString(36).slice(2)
-    const item: ToastItem = { ...opts, id }
-    setToasts((prev) => [...prev, item])
-    setTimeout(() => {
-      setToasts((prev) => prev.filter((t) => t.id !== id))
-    }, opts.duration ?? 4000)
-  }
+  useEffect(() => {
+    addToastFn = (opts: ToastOptions) => {
+      const id = Math.random().toString(36).slice(2)
+      const item: ToastItem = { ...opts, id }
+      setToasts((prev) => [...prev, item])
+      setTimeout(() => {
+        setToasts((prev) => prev.filter((t) => t.id !== id))
+      }, opts.duration ?? 4000)
+    }
+
+    return () => {
+      addToastFn = null
+    }
+  }, [])
 
   const dismiss = (id: string) => setToasts((prev) => prev.filter((t) => t.id !== id))
 

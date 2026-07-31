@@ -1,4 +1,5 @@
 import type { Request, Response } from 'express';
+import type { Prisma } from '@prisma/client';
 import { prisma } from '../lib/prisma.js';
 import type { AuthRequest } from '../middleware/auth.middleware.js';
 import { appendAuditLog } from '../lib/auditLog.js';
@@ -6,7 +7,7 @@ import { appendAuditLog } from '../lib/auditLog.js';
 export class VoterController {
   async stats(_req: Request, res: Response) {
     try {
-      const period = String((_req.query as any)?.period ?? 'all');
+      const period = String(_req.query.period ?? 'all');
       const now = new Date();
       const fromDate =
         period === '30d'
@@ -80,7 +81,7 @@ export class VoterController {
         perPage,
       } = req.query;
 
-      const where: any = {};
+      const where: Prisma.VoterWhereInput = {};
       if (coordinatorId) where.coordinatorId = String(coordinatorId);
       if (pollingPlaceId) where.pollingPlaceId = String(pollingPlaceId);
       if (region) where.region = String(region);
@@ -130,7 +131,7 @@ export class VoterController {
       });
       if (!voter) return res.status(404).json({ error: 'Eleitor não encontrado' });
       res.json(voter);
-    } catch (error) {
+    } catch {
       res.status(500).json({ error: 'Erro ao buscar eleitor' });
     }
   }
@@ -166,7 +167,7 @@ export class VoterController {
       });
 
       res.status(201).json(voter);
-    } catch (error) {
+    } catch {
       res.status(500).json({ error: 'Erro ao criar eleitor' });
     }
   }
@@ -180,7 +181,7 @@ export class VoterController {
         data
       });
       res.json(voter);
-    } catch (error) {
+    } catch {
       res.status(500).json({ error: 'Erro ao atualizar eleitor' });
     }
   }
@@ -190,7 +191,7 @@ export class VoterController {
       const id = String(req.params.id);
       await prisma.voter.delete({ where: { id } });
       res.status(204).send();
-    } catch (error) {
+    } catch {
       res.status(500).json({ error: 'Erro ao excluir eleitor' });
     }
   }

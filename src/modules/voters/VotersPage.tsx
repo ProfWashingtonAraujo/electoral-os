@@ -39,6 +39,13 @@ export function VotersPage() {
 
   const totalPages = Math.ceil((total || 0) / PER_PAGE)
 
+  const getPageNumbers = (current: number, total: number) => {
+    if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1)
+    if (current <= 4) return [1, 2, 3, 4, 5, '...', total]
+    if (current >= total - 3) return [1, '...', total - 4, total - 3, total - 2, total - 1, total]
+    return [1, '...', current - 1, current, current + 1, '...', total]
+  }
+
   const handleDelete = async () => {
     if (!deleteTarget) return
     try {
@@ -205,28 +212,48 @@ export function VotersPage() {
                 <div className="flex items-center gap-1">
                   <button
                     disabled={page === 1}
+                    onClick={() => setPage(1)}
+                    className="px-3 py-1.5 text-xs rounded border border-slate-200 hover:bg-white disabled:opacity-40 disabled:cursor-not-allowed hidden sm:block"
+                  >
+                    Primeiro
+                  </button>
+                  <button
+                    disabled={page === 1}
                     onClick={() => setPage((p) => Math.max(1, p - 1))}
                     className="px-3 py-1.5 text-xs rounded border border-slate-200 hover:bg-white disabled:opacity-40 disabled:cursor-not-allowed"
                   >
                     Anterior
                   </button>
-                  {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
-                    <button
-                      key={p}
-                      onClick={() => setPage(p)}
-                      className={`w-8 h-8 text-xs rounded border transition-colors ${
-                        p === page ? 'bg-blue-600 text-white border-blue-600' : 'border-slate-200 hover:bg-white text-slate-600'
-                      }`}
-                    >
-                      {p}
-                    </button>
+
+                  {getPageNumbers(page, totalPages).map((p, idx) => (
+                    p === '...' ? (
+                      <span key={`dots-${idx}`} className="px-2 text-slate-400">...</span>
+                    ) : (
+                      <button
+                        key={`page-${p}`}
+                        onClick={() => setPage(p as number)}
+                        className={`w-8 h-8 text-xs rounded border transition-colors ${
+                          p === page ? 'bg-blue-600 text-white border-blue-600' : 'border-slate-200 hover:bg-white text-slate-600'
+                        }`}
+                      >
+                        {p}
+                      </button>
+                    )
                   ))}
+
                   <button
                     disabled={page === totalPages}
                     onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                     className="px-3 py-1.5 text-xs rounded border border-slate-200 hover:bg-white disabled:opacity-40 disabled:cursor-not-allowed"
                   >
                     Próxima
+                  </button>
+                  <button
+                    disabled={page === totalPages}
+                    onClick={() => setPage(totalPages)}
+                    className="px-3 py-1.5 text-xs rounded border border-slate-200 hover:bg-white disabled:opacity-40 disabled:cursor-not-allowed hidden sm:block"
+                  >
+                    Último
                   </button>
                 </div>
               </div>

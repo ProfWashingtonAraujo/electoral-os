@@ -59,7 +59,7 @@ export function PollingPlaceFormPage() {
         toast({ type: 'success', title: 'Local de votação cadastrado', message: formattedData.name })
       }
       navigate(ROUTES.POLLING_PLACES)
-    } catch (error) {
+    } catch {
       toast({ type: 'error', title: 'Erro ao salvar', message: 'Verifique os dados e tente novamente' })
     }
   }

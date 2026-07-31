@@ -35,6 +35,10 @@ const AUDIT_EVENT_LABEL: Record<string, string> = {
   polling_place_created: 'Cadastro de local de votação',
 }
 
+function getErrorMessage(error: unknown, fallback: string) {
+  return error instanceof Error ? error.message : fallback
+}
+
 export function SettingsPage() {
   const authUser = useAuthStore((s) => s.user)
   const { users, fetch, addUser, updateUser, deleteUser } = useUsersStore()
@@ -78,8 +82,8 @@ export function SettingsPage() {
         toast({ type: 'success', title: 'Usuário criado', message: `${data.name} foi adicionado ao sistema.` })
       }
       setFormTarget(undefined)
-    } catch (err: any) {
-      toast({ type: 'error', title: 'Erro ao salvar', message: err?.message ?? 'Verifique os dados e tente novamente.' })
+    } catch (err: unknown) {
+      toast({ type: 'error', title: 'Erro ao salvar', message: getErrorMessage(err, 'Verifique os dados e tente novamente.') })
     }
   }
 
@@ -88,8 +92,8 @@ export function SettingsPage() {
     try {
       await deleteUser(deleteTarget.id)
       toast({ type: 'success', title: 'Usuário excluído', message: `${deleteTarget.name} foi removido.` })
-    } catch (err: any) {
-      toast({ type: 'error', title: 'Erro ao excluir', message: err?.message ?? 'Operação não permitida.' })
+    } catch (err: unknown) {
+      toast({ type: 'error', title: 'Erro ao excluir', message: getErrorMessage(err, 'Operação não permitida.') })
     }
     setDeleteTarget(null)
   }

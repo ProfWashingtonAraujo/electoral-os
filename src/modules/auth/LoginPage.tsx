@@ -22,31 +22,33 @@ const features = [
   { icon: Users, text: 'Gestão completa de coordenadores' },
 ]
 
+const SESSION_EXPIRED_MESSAGE = 'Sua sessão expirou por inatividade. Faça login novamente para continuar.'
+
 export function LoginPage() {
   const { login, isLoading } = useAuthStore()
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
+  const reason = searchParams.get('reason')
   const [showPassword, setShowPassword] = useState(false)
   const [loginError, setLoginError] = useState('')
-  const [sessionExpiredMessage, setSessionExpiredMessage] = useState('')
+  const [sessionExpiredMessage, setSessionExpiredMessage] = useState(
+    reason === 'inactivity' ? SESSION_EXPIRED_MESSAGE : '',
+  )
 
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
     resolver: zodResolver(schema),
   })
 
   useEffect(() => {
-    const reason = searchParams.get('reason')
     if (reason === 'inactivity') {
-      const message = 'Sua sessão expirou por inatividade. Faça login novamente para continuar.'
-      setSessionExpiredMessage(message)
       toast({
         type: 'warning',
         title: 'Sessão expirada',
-        message,
+        message: SESSION_EXPIRED_MESSAGE,
       })
       navigate(ROUTES.LOGIN, { replace: true })
     }
-  }, [navigate, searchParams])
+  }, [navigate, reason])
 
   const onSubmit = async (data: FormData) => {
     setLoginError('')

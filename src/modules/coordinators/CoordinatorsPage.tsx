@@ -23,22 +23,30 @@ export function CoordinatorsPage() {
   const [statusFilter, setStatusFilter] = useState('')
   const [deleteTarget, setDeleteTarget] = useState<Coordinator | null>(null)
 
-  const filtered = coordinators.filter((c) => {
-    const matchSearch =
-      !search ||
-      c.name.toLowerCase().includes(search.toLowerCase()) ||
-      c.neighborhood.toLowerCase().includes(search.toLowerCase())
-    const matchRegion = !regionFilter || c.region === regionFilter
-    const matchStatus = !statusFilter || c.status === statusFilter
-    return matchSearch && matchRegion && matchStatus
-  })
+  const [currentPage, setCurrentPage] = useState(1)
+  const itemsPerPage = 10
+
+  const filtered = [...coordinators]
+    .filter((c) => {
+      const matchSearch =
+        !search ||
+        c.name.toLowerCase().includes(search.toLowerCase()) ||
+        c.neighborhood.toLowerCase().includes(search.toLowerCase())
+      const matchRegion = !regionFilter || c.region === regionFilter
+      const matchStatus = !statusFilter || c.status === statusFilter
+      return matchSearch && matchRegion && matchStatus
+    })
+    .sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'))
+
+  const totalPages = Math.ceil(filtered.length / itemsPerPage)
+  const paginatedCoordinators = filtered.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
 
   const handleDelete = async () => {
     if (!deleteTarget) return
     try {
       await remove(deleteTarget.id)
       toast({ type: 'success', title: 'Coordenador removido', message: deleteTarget.name })
-    } catch (error) {
+    } catch {
       toast({ type: 'error', title: 'Erro ao excluir', message: 'Não foi possível excluir o coordenador' })
     }
     setDeleteTarget(null)
@@ -70,7 +78,7 @@ export function CoordinatorsPage() {
             type="text"
             placeholder="Buscar por nome ou bairro..."
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => { setSearch(e.target.value); setCurrentPage(1); }}
             className="form-input pl-11 h-10 text-sm"
           />
         </div>
@@ -78,7 +86,7 @@ export function CoordinatorsPage() {
           <Filter size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
           <select
             value={regionFilter}
-            onChange={(e) => setRegionFilter(e.target.value)}
+            onChange={(e) => { setRegionFilter(e.target.value); setCurrentPage(1); }}
             className="form-input pl-8 h-10 text-sm pr-8 appearance-none min-w-32"
           >
             <option value="">Todos os municípios</option>
@@ -89,7 +97,7 @@ export function CoordinatorsPage() {
         <div className="relative">
           <select
             value={statusFilter}
-            onChange={(e) => setStatusFilter(e.target.value)}
+            onChange={(e) => { setStatusFilter(e.target.value); setCurrentPage(1); }}
             className="form-input h-9 text-sm pr-8 appearance-none min-w-32"
           >
             <option value="">Todos os status</option>
@@ -99,7 +107,7 @@ export function CoordinatorsPage() {
         </div>
         {(search || regionFilter || statusFilter) && (
           <button
-            onClick={() => { setSearch(''); setRegionFilter(''); setStatusFilter('') }}
+            onClick={() => { setSearch(''); setRegionFilter(''); setStatusFilter(''); setCurrentPage(1); }}
             className="text-xs text-blue-600 hover:text-blue-700 font-medium"
           >
             Limpar filtros
@@ -134,7 +142,7 @@ export function CoordinatorsPage() {
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-50">
-              {filtered.map((c) => (
+              {paginatedCoordinators.map((c) => (
                 <tr
                   key={c.id}
                   className="hover:bg-slate-50 transition-colors group"
@@ -210,6 +218,34 @@ export function CoordinatorsPage() {
               ))}
             </tbody>
           </table>
+        )}
+
+        {/* Pagination Controls */}
+        {totalPages > 1 && (
+          <div className="px-5 py-3 border-t border-slate-100 flex items-center justify-between">
+            <span className="text-sm text-slate-500">
+              Mostrando {(currentPage - 1) * itemsPerPage + 1} a {Math.min(currentPage * itemsPerPage, filtered.length)} de {filtered.length}
+            </span>
+            <div className="flex items-center gap-1">
+              <button
+                onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                disabled={currentPage === 1}
+                className="px-3 py-1.5 text-sm font-medium rounded-md text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Anterior
+              </button>
+              <span className="text-sm font-medium text-slate-700 px-3">
+                {currentPage} / {totalPages}
+              </span>
+              <button
+                onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+                disabled={currentPage === totalPages}
+                className="px-3 py-1.5 text-sm font-medium rounded-md text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Próximo
+              </button>
+            </div>
+          </div>
         )}
       </div>
 

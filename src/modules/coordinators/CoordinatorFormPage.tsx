@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useEffectEvent, useRef, useState } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
-import { useForm } from 'react-hook-form'
+import { useForm, useWatch } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { ArrowLeft, Save } from 'lucide-react'
@@ -44,13 +44,13 @@ export function CoordinatorFormPage() {
   const lastLookupRef = useRef<string>('')
 
   const [pollingPlaceSearch, setPollingPlaceSearch] = useState('')
-  const { register, handleSubmit, reset, watch, setValue, formState: { errors, isSubmitting } } = useForm<FormData>({
+  const { register, handleSubmit, reset, control, getValues, setValue, formState: { errors, isSubmitting } } = useForm<FormData>({
     resolver: zodResolver(schema),
     defaultValues: { status: 'gold' },
   })
 
-  const selectedPlaceId = watch('pollingPlaceId')
-  const voterRegistrationValue = watch('voterRegistration')
+  const selectedPlaceId = useWatch({ control, name: 'pollingPlaceId' })
+  const voterRegistrationValue = useWatch({ control, name: 'voterRegistration' })
   const selectedPlace = pollingPlaces.find((p) => p.id === selectedPlaceId)
   const searchTerm = pollingPlaceSearch.trim().toLowerCase()
   const shouldFilterPollingPlaces = searchTerm.length >= 3
@@ -69,7 +69,6 @@ export function CoordinatorFormPage() {
 
   useEffect(() => {
     if (!isEdit || !id) {
-      setIsLoadingCoordinator(false)
       return
     }
 
@@ -93,7 +92,10 @@ export function CoordinatorFormPage() {
 
   useEffect(() => {
     if (!selectedPlace) return
-    setPollingPlaceSearch(`${selectedPlace.name} - ${selectedPlace.neighborhood}`)
+    const timeoutId = window.setTimeout(() => {
+      setPollingPlaceSearch(`${selectedPlace.name} - ${selectedPlace.neighborhood}`)
+    }, 0)
+    return () => window.clearTimeout(timeoutId)
   }, [selectedPlace])
 
   useEffect(() => {
@@ -105,14 +107,14 @@ export function CoordinatorFormPage() {
       return
     }
     if (sections.length > 1) {
-      const currentSection = watch('electoralSection')
+      const currentSection = getValues('electoralSection')
       if (!sections.includes(currentSection)) {
         setValue('electoralSection', '', { shouldValidate: true })
       }
     }
-  }, [selectedPlace, setValue, watch])
+  }, [getValues, selectedPlace, setValue])
 
-  const fillFromVoterRegistration = async (value: string) => {
+  const fillFromVoterRegistration = useEffectEvent(async (value: string) => {
     const rawValue = value.trim()
     const normalizedValue = normalizeVoterRegistration(rawValue)
     if (normalizedValue.length < 12) return
@@ -138,10 +140,10 @@ export function CoordinatorFormPage() {
         return
       }
 
-      const currentName = watch('name')
-      const currentWhatsapp = watch('whatsapp')
-      const currentRegion = watch('region')
-      const currentNeighborhood = watch('neighborhood')
+      const currentName = getValues('name')
+      const currentWhatsapp = getValues('whatsapp')
+      const currentRegion = getValues('region')
+      const currentNeighborhood = getValues('neighborhood')
 
       if (!currentName.trim()) setValue('name', matchedVoter.name, { shouldValidate: true })
       if (!currentWhatsapp.trim()) setValue('whatsapp', matchedVoter.whatsapp, { shouldValidate: true })
@@ -163,15 +165,15 @@ export function CoordinatorFormPage() {
     } finally {
       setIsLoadingVoterData(false)
     }
-  }
+  })
 
   useEffect(() => {
     const normalizedValue = normalizeVoterRegistration(voterRegistrationValue ?? '')
 
     if (normalizedValue.length < 12) {
       lastLookupRef.current = ''
-      setVoterLookupMessage(null)
-      return
+      const timeoutId = window.setTimeout(() => setVoterLookupMessage(null), 0)
+      return () => window.clearTimeout(timeoutId)
     }
 
     if (lastLookupRef.current === normalizedValue) return
@@ -204,7 +206,7 @@ export function CoordinatorFormPage() {
         toast({ type: 'success', title: 'Coordenador cadastrado', message: uppercaseData.name })
       }
       navigate(ROUTES.COORDINATORS)
-    } catch (error) {
+    } catch {
       toast({ type: 'error', title: 'Erro ao salvar', message: 'Verifique os dados e tente novamente' })
     }
   }

@@ -1,122 +1,111 @@
-import { useMemo } from 'react'
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  PieChart,
+  Pie,
+  Cell,
+  Legend,
+} from 'recharts'
 import type { EnrichedVoter } from '../reports.types'
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, PieChart, Pie } from 'recharts'
-import { SUPPORT_STATUS_OPTIONS } from '../../../constants/options'
 
-interface ReportChartsProps {
+interface Props {
   voters: EnrichedVoter[]
 }
 
-export function ReportCharts({ voters }: ReportChartsProps) {
-  // Dados para Gráfico de Região
-  const regionData = useMemo(() => {
-    const counts = voters.reduce((acc, v) => {
-      acc[v.region] = (acc[v.region] || 0) + 1
-      return acc
-    }, {} as Record<string, number>)
-    return Object.entries(counts)
-      .map(([name, value]) => ({ name, value }))
-      .sort((a, b) => b.value - a.value)
-      .slice(0, 7) // Top 7
-  }, [voters])
+const STATUS_COLORS: Record<string, string> = {
+  gold: '#f59e0b',
+  platinum: '#64748b',
+  premium: '#7c3aed',
+}
 
-  // Dados para Status de Apoio
-  const statusData = useMemo(() => {
-    const counts = voters.reduce((acc, v) => {
-      acc[v.supportStatus] = (acc[v.supportStatus] || 0) + 1
-      return acc
-    }, {} as Record<string, number>)
-    
-    const colors: Record<string, string> = {
-      gold: '#F59E0B',
-      platinum: '#94A3B8',
-      premium: '#3B82F6'
-    }
+export function ReportCharts({ voters }: Props) {
+  // Distribuição por status
+  const statusData = ['gold', 'platinum', 'premium'].map((s) => ({
+    name: s.charAt(0).toUpperCase() + s.slice(1),
+    value: voters.filter((v) => v.supportStatus === s).length,
+  }))
 
-    return SUPPORT_STATUS_OPTIONS.map(opt => ({
-      name: opt.label,
-      value: counts[opt.value] || 0,
-      fill: colors[opt.value] || '#94a3b8'
-    })).filter(d => d.value > 0)
-  }, [voters])
+  // Top 8 coordenadores por número de eleitores
+  const coordMap: Record<string, number> = {}
+  voters.forEach((v) => {
+    const name = v.coordinatorName || 'Sem Coordenador'
+    coordMap[name] = (coordMap[name] || 0) + 1
+  })
+  const coordData = Object.entries(coordMap)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 8)
+    .map(([name, total]) => ({ name: name.split(' ')[0], total }))
 
-  // Dados para Local de Votação
-  const pollingPlaceData = useMemo(() => {
-    const counts = voters.reduce((acc, v) => {
-      const name = v.pollingPlaceName || 'Não Informado'
-      acc[name] = (acc[name] || 0) + 1
-      return acc
-    }, {} as Record<string, number>)
-    return Object.entries(counts)
-      .map(([name, value]) => ({ name: name.length > 20 ? name.substring(0, 20) + '...' : name, value }))
-      .sort((a, b) => b.value - a.value)
-      .slice(0, 5) // Top 5
-  }, [voters])
-
-
-  if (voters.length === 0) return null
+  // Distribuição por região
+  const regionMap: Record<string, number> = {}
+  voters.forEach((v) => {
+    const r = v.region || 'Não informado'
+    regionMap[r] = (regionMap[r] || 0) + 1
+  })
+  const regionData = Object.entries(regionMap)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 8)
+    .map(([name, total]) => ({ name, total }))
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-      {/* Gráfico 1: Município */}
-      <div className="card p-5">
-        <h3 className="text-sm font-semibold text-slate-800 mb-4">Eleitores por Região (Top 7)</h3>
-        <div className="h-64">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={regionData} layout="vertical" margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
-              <XAxis type="number" hide />
-              <YAxis dataKey="name" type="category" width={100} axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#475569' }} />
-              <Tooltip cursor={{ fill: '#f1f5f9' }} contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }} />
-              <Bar dataKey="value" fill="#3b82f6" radius={[0, 4, 4, 0]}>
-                {regionData.map((_entry, index) => (
-                  <Cell key={`cell-${index}`} fill={index === 0 ? '#2563eb' : '#60a5fa'} />
-                ))}
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-      </div>
-
-      {/* Gráfico 2: Status de Apoio */}
-      <div className="card p-5">
-        <h3 className="text-sm font-semibold text-slate-800 mb-4">Status de Apoio</h3>
-        <div className="h-64">
-          <ResponsiveContainer width="100%" height="100%">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      {/* Pie – Status */}
+      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5">
+        <h3 className="text-sm font-semibold text-slate-700 mb-4">Status de Apoio</h3>
+        {voters.length === 0 ? (
+          <p className="text-slate-400 text-sm text-center mt-10">Sem dados</p>
+        ) : (
+          <ResponsiveContainer width="100%" height={220}>
             <PieChart>
-              <Pie
-                data={statusData}
-                innerRadius={60}
-                outerRadius={80}
-                paddingAngle={5}
-                dataKey="value"
-                label={({ name, percent }) => `${name} (${((percent || 0) * 100).toFixed(0)}%)`}
-                labelLine={false}
-              >
-                {statusData.map((_entry, index) => (
-                  <Cell key={`cell-${index}`} fill={_entry.fill} />
+              <Pie data={statusData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={80} label>
+                {statusData.map((entry) => (
+                  <Cell key={entry.name} fill={STATUS_COLORS[entry.name.toLowerCase()] ?? '#94a3b8'} />
                 ))}
               </Pie>
-              <Tooltip contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }} />
+              <Legend />
+              <Tooltip />
             </PieChart>
           </ResponsiveContainer>
-        </div>
+        )}
       </div>
 
-      {/* Gráfico 3: Locais de Votação */}
-      <div className="card p-5">
-        <h3 className="text-sm font-semibold text-slate-800 mb-4">Top 5 Locais de Votação</h3>
-        <div className="h-64">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={pollingPlaceData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-              <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 10, fill: '#475569' }} interval={0} angle={-45} textAnchor="end" height={60} />
-              <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#475569' }} />
-              <Tooltip cursor={{ fill: '#f1f5f9' }} contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }} />
-              <Bar dataKey="value" fill="#8b5cf6" radius={[4, 4, 0, 0]} />
+      {/* Bar – Coordenadores */}
+      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5">
+        <h3 className="text-sm font-semibold text-slate-700 mb-4">Top Coordenadores</h3>
+        {coordData.length === 0 ? (
+          <p className="text-slate-400 text-sm text-center mt-10">Sem dados</p>
+        ) : (
+          <ResponsiveContainer width="100%" height={220}>
+            <BarChart data={coordData} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
+              <XAxis dataKey="name" tick={{ fontSize: 11 }} />
+              <YAxis tick={{ fontSize: 11 }} />
+              <Tooltip />
+              <Bar dataKey="total" fill="#2563eb" radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
-        </div>
+        )}
       </div>
 
+      {/* Bar – Regiões */}
+      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5">
+        <h3 className="text-sm font-semibold text-slate-700 mb-4">Distribuição por Região</h3>
+        {regionData.length === 0 ? (
+          <p className="text-slate-400 text-sm text-center mt-10">Sem dados</p>
+        ) : (
+          <ResponsiveContainer width="100%" height={220}>
+            <BarChart data={regionData} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
+              <XAxis dataKey="name" tick={{ fontSize: 11 }} />
+              <YAxis tick={{ fontSize: 11 }} />
+              <Tooltip />
+              <Bar dataKey="total" fill="#10b981" radius={[4, 4, 0, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
+        )}
+      </div>
     </div>
   )
 }

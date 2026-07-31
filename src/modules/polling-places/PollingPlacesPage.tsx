@@ -9,6 +9,8 @@ export function PollingPlacesPage() {
   const pollingPlaces = usePollingPlacesStore((s) => s.pollingPlaces)
   const [search, setSearch] = useState('')
   const [regionFilter, setRegionFilter] = useState('')
+  const [currentPage, setCurrentPage] = useState(1)
+  const itemsPerPage = 12
 
   const places = pollingPlaces
     .filter((p) => {
@@ -18,6 +20,9 @@ export function PollingPlacesPage() {
       const matchRegion = !regionFilter || p.region === regionFilter
       return matchSearch && matchRegion
     })
+
+  const totalPages = Math.ceil(places.length / itemsPerPage)
+  const paginatedPlaces = places.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
 
   return (
     <div className="space-y-6 animate-fade-in">
@@ -39,13 +44,19 @@ export function PollingPlacesPage() {
             type="text"
             placeholder="Buscar por nome ou bairro..."
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => {
+              setSearch(e.target.value)
+              setCurrentPage(1)
+            }}
             className="form-input pl-11 h-10 text-sm"
           />
         </div>
         <select
           value={regionFilter}
-          onChange={(e) => setRegionFilter(e.target.value)}
+          onChange={(e) => {
+            setRegionFilter(e.target.value)
+            setCurrentPage(1)
+          }}
           className="form-input h-10 text-sm min-w-36 appearance-none"
         >
           <option value="">Todos os municípios</option>
@@ -55,7 +66,7 @@ export function PollingPlacesPage() {
 
       {/* Cards grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-        {places.map((place) => (
+        {paginatedPlaces.map((place) => (
           <Link
             key={place.id}
             to={ROUTES.POLLING_PLACE_DETAIL(place.id)}
@@ -94,6 +105,33 @@ export function PollingPlacesPage() {
           </Link>
         ))}
       </div>
+
+      {totalPages > 1 && (
+        <div className="card px-5 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <span className="text-sm text-slate-500">
+            Mostrando {(currentPage - 1) * itemsPerPage + 1} a {Math.min(currentPage * itemsPerPage, places.length)} de {places.length}
+          </span>
+          <div className="flex items-center gap-1">
+            <button
+              onClick={() => setCurrentPage((page) => Math.max(1, page - 1))}
+              disabled={currentPage === 1}
+              className="px-3 py-1.5 text-sm font-medium rounded-md text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Anterior
+            </button>
+            <span className="text-sm font-medium text-slate-700 px-3">
+              {currentPage} / {totalPages}
+            </span>
+            <button
+              onClick={() => setCurrentPage((page) => Math.min(totalPages, page + 1))}
+              disabled={currentPage === totalPages}
+              className="px-3 py-1.5 text-sm font-medium rounded-md text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Próximo
+            </button>
+          </div>
+        </div>
+      )}
 
       {places.length === 0 && (
         <div className="card flex flex-col items-center justify-center py-16 text-center">

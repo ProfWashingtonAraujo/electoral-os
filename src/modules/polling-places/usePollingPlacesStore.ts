@@ -53,7 +53,7 @@ export const usePollingPlacesStore = create<PollingPlacesState>((set, get) => ({
     try {
       const pollingPlaces = await pollingPlaceApi.getAll()
       set({ pollingPlaces, isLoading: false })
-    } catch (error) {
+    } catch {
       set({ error: 'Erro ao carregar locais de votação', isLoading: false })
     }
   },

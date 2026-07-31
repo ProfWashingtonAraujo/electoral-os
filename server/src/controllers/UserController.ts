@@ -1,5 +1,6 @@
 import type { Request, Response } from 'express';
 import bcrypt from 'bcryptjs';
+import type { Prisma } from '@prisma/client';
 import { prisma } from '../lib/prisma.js';
 
 const SALT_ROUNDS = 10;
@@ -33,7 +34,7 @@ export class UserController {
       const user = await prisma.user.findUnique({ where: { id }, select: userSelect });
       if (!user) return res.status(404).json({ error: 'Usuário não encontrado' });
       res.json(user);
-    } catch (error) {
+    } catch {
       res.status(500).json({ error: 'Erro ao buscar usuário' });
     }
   }
@@ -96,13 +97,14 @@ export class UserController {
       try {
         const user = await prisma.user.update({ where: { id }, data, select: userSelect });
         res.json(user);
-      } catch (error: any) {
+      } catch (error: unknown) {
         // Prisma unique violation: keep API semantics consistent.
-        if (error?.code === 'P2002') {
+        const prismaError = error as Prisma.PrismaClientKnownRequestError
+        if (prismaError.code === 'P2002') {
           return res.status(409).json({ error: 'E-mail já cadastrado' });
         }
         // Prisma not found
-        if (error?.code === 'P2025') {
+        if (prismaError.code === 'P2025') {
           return res.status(404).json({ error: 'Usuário não encontrado' });
         }
         throw error;
@@ -129,7 +131,7 @@ export class UserController {
 
       await prisma.user.delete({ where: { id } });
       res.status(204).send();
-    } catch (error) {
+    } catch {
       res.status(500).json({ error: 'Erro ao excluir usuário' });
     }
   }

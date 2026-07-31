@@ -1,42 +1,78 @@
-import { Users, UserCheck, TrendingUp, Map, MapPin, Hash } from 'lucide-react'
+import { Users, Star, MapPin, UserCheck } from 'lucide-react'
 import type { EnrichedVoter } from '../reports.types'
 
-interface ReportSummaryCardsProps {
+interface Props {
   voters: EnrichedVoter[]
   activeCoordinatorsCount: number
 }
 
-export function ReportSummaryCards({ voters, activeCoordinatorsCount }: ReportSummaryCardsProps) {
-  // Calculando métricas baseadas apenas nos eleitores filtrados
-  const goldCount = voters.filter(v => v.supportStatus === 'gold').length
-  const goldRate = voters.length > 0 ? Math.round((goldCount / voters.length) * 100) : 0
+interface CardProps {
+  title: string
+  value: number | string
+  icon: React.ReactNode
+  color: string
+}
 
-  const uniqueRegions = new Set(voters.map(v => v.region)).size
-  const uniquePollingPlaces = new Set(voters.map(v => v.pollingPlaceId).filter(Boolean)).size
-  const uniqueSections = new Set(voters.map(v => v.electoralSection).filter(Boolean)).size
+function StatCard({ title, value, icon, color }: CardProps) {
+  return (
+    <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 flex items-center gap-4">
+      <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-white flex-shrink-0 ${color}`}>
+        {icon}
+      </div>
+      <div>
+        <p className="text-2xl font-black text-slate-900">{value}</p>
+        <p className="text-sm text-slate-500">{title}</p>
+      </div>
+    </div>
+  )
+}
 
-  const cards = [
-    { label: 'Eleitores Listados', value: voters.length, icon: Users, color: 'text-blue-600', bg: 'bg-blue-50' },
-    { label: 'Coordenadores Relacionados', value: activeCoordinatorsCount, icon: UserCheck, color: 'text-indigo-600', bg: 'bg-indigo-50' },
-    { label: 'Taxa Gold (Fidelizados)', value: `${goldRate}%`, icon: TrendingUp, color: 'text-amber-600', bg: 'bg-amber-50' },
-    { label: 'Municípios Impactados', value: uniqueRegions, icon: Map, color: 'text-orange-600', bg: 'bg-orange-50' },
-    { label: 'Locais de Votação', value: uniquePollingPlaces, icon: MapPin, color: 'text-purple-600', bg: 'bg-purple-50' },
-    { label: 'Seções Atendidas', value: uniqueSections, icon: Hash, color: 'text-rose-600', bg: 'bg-rose-50' },
-  ]
+export function ReportSummaryCards({ voters, activeCoordinatorsCount }: Props) {
+  const goldCount = voters.filter((v) => v.supportStatus === 'gold').length
+  const platinumCount = voters.filter((v) => v.supportStatus === 'platinum').length
+  const premiumCount = voters.filter((v) => v.supportStatus === 'premium').length
+
+  const uniqueRegions = new Set(voters.map((v) => v.region).filter(Boolean)).size
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4">
-      {cards.map(({ label, value, icon: Icon, color, bg }, idx) => (
-        <div key={idx} className="card p-4 hover:shadow-md transition-shadow">
-          <div className="flex items-center justify-between mb-3">
-            <p className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{label}</p>
-            <div className={`w-7 h-7 rounded-lg ${bg} flex items-center justify-center shrink-0`}>
-              <Icon size={14} className={color} />
-            </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <StatCard
+        title="Total de Eleitores"
+        value={voters.length}
+        icon={<Users size={20} />}
+        color="bg-blue-600"
+      />
+      <StatCard
+        title="Coordenadores Ativos"
+        value={activeCoordinatorsCount}
+        icon={<UserCheck size={20} />}
+        color="bg-indigo-600"
+      />
+      <StatCard
+        title="Regiões Cobertas"
+        value={uniqueRegions}
+        icon={<MapPin size={20} />}
+        color="bg-emerald-600"
+      />
+      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5">
+        <p className="text-sm font-semibold text-slate-500 mb-3 flex items-center gap-1">
+          <Star size={14} className="text-amber-500" /> Status de Apoio
+        </p>
+        <div className="flex gap-4">
+          <div className="text-center">
+            <p className="text-xl font-black text-amber-500">{goldCount}</p>
+            <p className="text-xs text-slate-400">Gold</p>
           </div>
-          <p className="text-2xl font-black text-slate-900">{value}</p>
+          <div className="text-center">
+            <p className="text-xl font-black text-slate-500">{platinumCount}</p>
+            <p className="text-xs text-slate-400">Platinum</p>
+          </div>
+          <div className="text-center">
+            <p className="text-xl font-black text-purple-600">{premiumCount}</p>
+            <p className="text-xs text-slate-400">Premium</p>
+          </div>
         </div>
-      ))}
+      </div>
     </div>
   )
 }

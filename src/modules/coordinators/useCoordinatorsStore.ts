@@ -24,7 +24,7 @@ export const useCoordinatorsStore = create<CoordinatorsState>((set, get) => ({
     try {
       const coordinators = await coordinatorApi.getAll()
       set({ coordinators, isLoading: false })
-    } catch (error) {
+    } catch {
       set({ error: 'Erro ao carregar coordenadores', isLoading: false })
     }
   },

@@ -35,7 +35,8 @@ export class AuthController {
         { expiresIn: JWT_EXPIRES_IN } as jwt.SignOptions
       );
 
-      const { password: _, ...userWithoutPassword } = user;
+      const userWithoutPassword = { ...user };
+      delete userWithoutPassword.password;
 
       await appendAuditLog({
         type: 'login_success',

@@ -38,7 +38,7 @@ export class PollingPlaceController {
         orderBy: { name: 'asc' },
       });
       res.json(pollingPlaces.map(normalizePlace));
-    } catch (error) {
+    } catch {
       res.status(500).json({ error: 'Erro ao buscar locais de votação' });
     }
   }
@@ -51,7 +51,7 @@ export class PollingPlaceController {
       });
       if (!pollingPlace) return res.status(404).json({ error: 'Local de votação não encontrado' });
       res.json(normalizePlace(pollingPlace));
-    } catch (error) {
+    } catch {
       res.status(500).json({ error: 'Erro ao buscar local de votação' });
     }
   }
@@ -84,7 +84,7 @@ export class PollingPlaceController {
       });
 
       res.status(201).json(normalizePlace(pollingPlace));
-    } catch (error) {
+    } catch {
       res.status(500).json({ error: 'Erro ao criar local de votação' });
     }
   }
@@ -102,7 +102,7 @@ export class PollingPlaceController {
         data,
       });
       res.json(normalizePlace(pollingPlace));
-    } catch (error) {
+    } catch {
       res.status(500).json({ error: 'Erro ao atualizar local de votação' });
     }
   }
@@ -112,7 +112,7 @@ export class PollingPlaceController {
       const id = String(req.params.id);
       await prisma.pollingPlace.delete({ where: { id } });
       res.status(204).send();
-    } catch (error) {
+    } catch {
       res.status(500).json({ error: 'Erro ao excluir local de votação' });
     }
   }

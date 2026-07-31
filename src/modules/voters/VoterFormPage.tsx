@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
-import { useForm } from 'react-hook-form'
+import { useForm, useWatch } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { ArrowLeft, Save } from 'lucide-react'
 import { useVotersStore } from './useVotersStore'
-import { voterApi } from '../../api/voter.api'
 import { useCoordinatorsStore } from '../coordinators/useCoordinatorsStore'
 import { usePollingPlacesStore } from '../polling-places/usePollingPlacesStore'
 import { toast } from '../../components/feedback/Toast'
@@ -40,29 +39,31 @@ export function VoterFormPage() {
   const existing = isEdit ? getById(id!) : undefined
   const [pollingPlaceSearch, setPollingPlaceSearch] = useState('')
 
-  const { register, handleSubmit, reset, watch, setValue, formState: { errors, isSubmitting } } = useForm<FormData>({
+  const { register, handleSubmit, control, setValue, formState: { errors, isSubmitting } } = useForm<FormData>({
     resolver: zodResolver(schema),
     defaultValues: { supportStatus: 'platinum', registrationSource: 'manual' },
   })
 
+  // Auto-fill polling place based on voter registration (first 12 digits)
+  const voterReg = useWatch({ control, name: 'voterRegistration' })
   useEffect(() => {
-    let cancelled = false
-    if (existing) {
-      reset(existing)
-      return
+    if (voterReg && voterReg.length === 12) {
+      // Example: assume electoral zone is digits 7-9 of the registration number
+      const zone = voterReg.slice(6, 9);
+      const matchingPlace = pollingPlaces.find((p) => p.electoralZone === zone);
+      if (matchingPlace) {
+        setValue('pollingPlaceId', matchingPlace.id, { shouldValidate: true });
+        const timeoutId = window.setTimeout(() => {
+          setPollingPlaceSearch(`${matchingPlace.name} — ${matchingPlace.neighborhood}`)
+        }, 0)
+        return () => window.clearTimeout(timeoutId)
+      }
     }
-    if (isEdit && id) {
-      voterApi.getById(id).then((data) => {
-        if (!cancelled) reset(data as unknown as FormData)
-      }).catch(() => {
-        // leave form empty; UI will show not found state in header
-      })
-    }
-    return () => { cancelled = true }
-  }, [existing, reset, isEdit, id])
+  }, [voterReg, pollingPlaces, setValue])
+
 
   // Auto-fill zone from polling place
-  const selectedPlaceId = watch('pollingPlaceId')
+  const selectedPlaceId = useWatch({ control, name: 'pollingPlaceId' })
   const selectedPlace = pollingPlaces.find((p) => p.id === selectedPlaceId)
   const searchTerm = pollingPlaceSearch.trim().toLowerCase()
   const shouldFilterPollingPlaces = searchTerm.length >= 3
@@ -77,7 +78,10 @@ export function VoterFormPage() {
 
   useEffect(() => {
     if (!selectedPlace) return
-    setPollingPlaceSearch(`${selectedPlace.name} — ${selectedPlace.neighborhood}`)
+    const timeoutId = window.setTimeout(() => {
+      setPollingPlaceSearch(`${selectedPlace.name} — ${selectedPlace.neighborhood}`)
+    }, 0)
+    return () => window.clearTimeout(timeoutId)
   }, [selectedPlace])
 
   const onSubmit = async (data: FormData) => {
@@ -100,7 +104,7 @@ export function VoterFormPage() {
         toast({ type: 'success', title: 'Eleitor cadastrado', message: uppercaseData.name })
       }
       navigate(ROUTES.VOTERS)
-    } catch (error) {
+    } catch {
       toast({ type: 'error', title: 'Erro ao salvar', message: 'Verifique os dados e tente novamente' })
     }
   }

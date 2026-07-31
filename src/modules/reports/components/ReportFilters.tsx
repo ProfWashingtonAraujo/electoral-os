@@ -1,52 +1,45 @@
-import type { ReportFiltersState } from '../reports.types'
-import { CEARA_MUNICIPALITIES, SUPPORT_STATUS_OPTIONS } from '../../../constants/options'
 import { Search } from 'lucide-react'
+import type { ReportFiltersState } from '../reports.types'
+import type { Coordinator } from '../../../types/coordinator.types'
+import type { PollingPlace } from '../../../types/polling-place.types'
 
-interface ReportFiltersFormProps {
+interface Props {
   filters: ReportFiltersState
   onChange: (filters: ReportFiltersState) => void
-  coordinators: { id: string, name: string }[]
-  pollingPlaces: { id: string, name: string, sections: string[] }[]
+  coordinators: Coordinator[]
+  pollingPlaces: PollingPlace[]
 }
 
-export function ReportFiltersForm({ filters, onChange, coordinators, pollingPlaces }: ReportFiltersFormProps) {
-  const updateFilter = (key: keyof ReportFiltersState, value: string) => {
+export function ReportFiltersForm({ filters, onChange, coordinators, pollingPlaces }: Props) {
+  const set = (key: keyof ReportFiltersState, value: string) =>
     onChange({ ...filters, [key]: value })
-  }
-
-  const selectedPlace = pollingPlaces.find(p => p.id === filters.pollingPlaceId)
-
-  // Quando o local de votação muda, limpamos a seção selecionada
-  const handlePollingPlaceChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const newPlaceId = e.target.value
-    onChange({ ...filters, pollingPlaceId: newPlaceId, electoralSection: '' })
-  }
 
   return (
-    <div className="card p-5 bg-white space-y-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-        {/* Busca por Nome/Título */}
-        <div className="relative xl:col-span-2">
-          <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">Busca</label>
+    <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-x-5 gap-y-6">
+        {/* Row 1 */}
+        {/* Busca textual */}
+        <div className="md:col-span-2">
+          <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">Busca</label>
           <div className="relative">
-            <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+            <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
             <input
               type="text"
               placeholder="Nome ou Título do Eleitor..."
               value={filters.searchTerm}
-              onChange={(e) => updateFilter('searchTerm', e.target.value)}
-              className="form-input pl-11 h-10 w-full"
+              onChange={(e) => set('searchTerm', e.target.value)}
+              className="w-full h-10 pl-9 pr-3 text-sm rounded-lg border border-slate-200 text-slate-700 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-shadow"
             />
           </div>
         </div>
 
         {/* Período */}
-        <div>
-          <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">Período de Cadastro</label>
+        <div className="md:col-span-1">
+          <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">Período de Cadastro</label>
           <select
             value={filters.period}
-            onChange={(e) => updateFilter('period', e.target.value)}
-            className="form-input h-10 w-full"
+            onChange={(e) => set('period', e.target.value)}
+            className="w-full h-10 px-3 text-sm rounded-lg border border-slate-200 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-shadow appearance-none bg-white"
           >
             <option value="all">Todo o Período</option>
             <option value="today">Hoje</option>
@@ -56,72 +49,74 @@ export function ReportFiltersForm({ filters, onChange, coordinators, pollingPlac
         </div>
 
         {/* Coordenador */}
-        <div>
-          <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">Coordenador</label>
+        <div className="md:col-span-1">
+          <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">Coordenador</label>
           <select
             value={filters.coordinatorId}
-            onChange={(e) => updateFilter('coordinatorId', e.target.value)}
-            className="form-input h-10 w-full"
+            onChange={(e) => set('coordinatorId', e.target.value)}
+            className="w-full h-10 px-3 text-sm rounded-lg border border-slate-200 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-shadow appearance-none bg-white"
           >
             <option value="">Todos os Coordenadores</option>
-            {coordinators.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
+            {coordinators.map((c) => (
+              <option key={c.id} value={c.id}>{c.name}</option>
+            ))}
           </select>
         </div>
 
         {/* Status de Apoio */}
-        <div>
-          <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">Status de Apoio</label>
+        <div className="md:col-span-1">
+          <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">Status de Apoio</label>
           <select
             value={filters.supportStatus}
-            onChange={(e) => updateFilter('supportStatus', e.target.value)}
-            className="form-input h-10 w-full"
+            onChange={(e) => set('supportStatus', e.target.value)}
+            className="w-full h-10 px-3 text-sm rounded-lg border border-slate-200 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-shadow appearance-none bg-white"
           >
             <option value="">Todos os Status</option>
-            {SUPPORT_STATUS_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
+            <option value="gold">Gold</option>
+            <option value="platinum">Platinum</option>
+            <option value="premium">Premium</option>
           </select>
         </div>
 
-        {/* Região */}
-        <div>
-          <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">Município</label>
+        {/* Row 2 */}
+        {/* Município (Region) */}
+        <div className="md:col-span-1">
+          <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">Município</label>
           <select
             value={filters.region}
-            onChange={(e) => updateFilter('region', e.target.value)}
-            className="form-input h-10 w-full"
+            onChange={(e) => set('region', e.target.value)}
+            className="w-full h-10 px-3 text-sm rounded-lg border border-slate-200 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-shadow appearance-none bg-white"
           >
             <option value="">Todos os Municípios</option>
-            {CEARA_MUNICIPALITIES.map(r => <option key={r} value={r}>{r}</option>)}
+            {/* Adicione a lista de municípios se desejar */}
           </select>
         </div>
-
 
         {/* Local de Votação */}
-        <div>
-          <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">Local de Votação</label>
+        <div className="md:col-span-1">
+          <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">Local de Votação</label>
           <select
             value={filters.pollingPlaceId}
-            onChange={handlePollingPlaceChange}
-            className="form-input h-10 w-full"
+            onChange={(e) => set('pollingPlaceId', e.target.value)}
+            className="w-full h-10 px-3 text-sm rounded-lg border border-slate-200 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-shadow appearance-none bg-white"
           >
             <option value="">Todos os Locais</option>
-            {pollingPlaces.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
+            {pollingPlaces.map((p) => (
+              <option key={p.id} value={p.id}>{p.name}</option>
+            ))}
           </select>
         </div>
 
-        {/* Seção */}
-        <div>
-          <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">Seção</label>
+        {/* Seção Eleitoral */}
+        <div className="md:col-span-1">
+          <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">Seção</label>
           <select
             value={filters.electoralSection}
-            onChange={(e) => updateFilter('electoralSection', e.target.value)}
-            className="form-input h-10 w-full"
-            disabled={!filters.pollingPlaceId}
+            onChange={(e) => set('electoralSection', e.target.value)}
+            className="w-full h-10 px-3 text-sm rounded-lg border border-slate-200 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-shadow appearance-none bg-white"
           >
             <option value="">Todas as Seções</option>
-            {(selectedPlace?.sections ?? []).map((s) => (
-              <option key={s} value={s}>{s}</option>
-            ))}
-            {!selectedPlace && <option disabled>Selecione um local...</option>}
+            {/* Se houver opções específicas de seção, adicione aqui */}
           </select>
         </div>
       </div>

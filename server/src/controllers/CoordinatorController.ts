@@ -32,7 +32,7 @@ export class CoordinatorController {
       });
       if (!coordinator) return res.status(404).json({ error: 'Coordenador não encontrado' });
       res.json(coordinator);
-    } catch (error) {
+    } catch {
       res.status(500).json({ error: 'Erro ao buscar coordenador' });
     }
   }
@@ -86,7 +86,7 @@ export class CoordinatorController {
       });
 
       res.status(201).json(coordinator);
-    } catch (error) {
+    } catch {
       res.status(500).json({ error: 'Erro ao criar coordenador' });
     }
   }
@@ -128,7 +128,7 @@ export class CoordinatorController {
         }
       });
       res.json(coordinator);
-    } catch (error) {
+    } catch {
       res.status(500).json({ error: 'Erro ao atualizar coordenador' });
     }
   }
@@ -138,7 +138,7 @@ export class CoordinatorController {
       const id = String(req.params.id);
       await prisma.coordinator.delete({ where: { id } });
       res.status(204).send();
-    } catch (error) {
+    } catch {
       res.status(500).json({ error: 'Erro ao excluir coordenador' });
     }
   }

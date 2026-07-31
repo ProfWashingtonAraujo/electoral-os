@@ -44,7 +44,7 @@ export const useUsersStore = create<UsersState>((set, get) => ({
     } catch (error) {
       const message = getApiErrorMessage(error, 'Erro ao criar usuário')
       set({ error: message, isLoading: false })
-      throw new Error(message)
+      throw new Error(message, { cause: error })
     }
   },
 
@@ -59,7 +59,7 @@ export const useUsersStore = create<UsersState>((set, get) => ({
     } catch (error) {
       const message = getApiErrorMessage(error, 'Erro ao atualizar usuário')
       set({ error: message, isLoading: false })
-      throw new Error(message)
+      throw new Error(message, { cause: error })
     }
   },
 
@@ -78,7 +78,7 @@ export const useUsersStore = create<UsersState>((set, get) => ({
     } catch (error) {
       const message = getApiErrorMessage(error, 'Erro ao excluir usuário')
       set({ error: message, isLoading: false })
-      throw new Error(message)
+      throw new Error(message, { cause: error })
     }
   },
 }))

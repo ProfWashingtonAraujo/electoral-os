@@ -70,7 +70,8 @@ export function UserFormModal({ user, onSave, onClose }: UserFormModalProps) {
     }
     // Don't send empty password on edit
     if (isEdit && !uppercaseData.password) {
-      const { password: _, ...rest } = uppercaseData
+      const rest = { ...uppercaseData }
+      delete rest.password
       onSave(rest as FormData)
     } else {
       onSave(uppercaseData)

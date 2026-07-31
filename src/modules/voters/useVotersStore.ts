@@ -82,7 +82,7 @@ export const useVotersStore = create<VotersState>((set, get) => ({
     try {
       const res = await voterApi.getAll(filters)
       set({ voters: res.items, total: res.total, page: res.page, perPage: res.perPage, isLoading: false })
-    } catch (error) {
+    } catch {
       set({ error: 'Erro ao carregar eleitores', isLoading: false })
     }
   },
