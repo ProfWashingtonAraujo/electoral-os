@@ -9,6 +9,22 @@ interface UserInfo {
   role?: string
 }
 
+const SUPPORT_STATUS_LABELS: Record<string, string> = {
+  gold: 'Gold',
+  platinum: 'Platinum',
+  premium: 'Premium',
+}
+
+const VOTER_STATUS_LABELS: Record<string, string> = {
+  active: 'Ativo',
+  inactive: 'Inativo',
+}
+
+function formatDate(value?: string) {
+  if (!value) return '-'
+  return new Date(value).toLocaleDateString('pt-BR')
+}
+
 export function exportReportPDF(
   voters: EnrichedVoter[],
   filters: ReportFiltersState,
@@ -43,19 +59,48 @@ export function exportReportPDF(
   // Tabela
   autoTable(doc, {
     startY: activeFilters.length > 0 ? 50 : 44,
-    head: [['Nome', 'WhatsApp', 'Coordenador', 'Local de Votação', 'Zona/Seção', 'Status', 'Região']],
+    head: [[
+      'Nome',
+      'Coordenador',
+      'WhatsApp',
+      'Bairro',
+      'Município',
+      'Local Votação',
+      'Zona',
+      'Seção',
+      'Status',
+      'Data',
+      'Status 2',
+    ]],
     body: voters.map((v) => [
       v.name,
-      v.whatsapp || '—',
       v.coordinatorName,
+      v.whatsapp || '-',
+      v.neighborhood || '-',
+      v.city || v.region || '-',
       v.pollingPlaceName,
-      `${v.electoralZone || '—'} / ${v.electoralSection || '—'}`,
-      v.supportStatus,
-      v.region || '—',
+      v.electoralZone || '-',
+      v.electoralSection || '-',
+      SUPPORT_STATUS_LABELS[v.supportStatus] ?? v.supportStatus,
+      formatDate(v.createdAt),
+      VOTER_STATUS_LABELS[v.status ?? ''] ?? v.status ?? '-',
     ]),
-    styles: { fontSize: 8 },
+    styles: { fontSize: 7, cellPadding: 1.8, overflow: 'linebreak' },
     headStyles: { fillColor: [30, 64, 175], textColor: 255, fontStyle: 'bold' },
     alternateRowStyles: { fillColor: [241, 245, 249] },
+    columnStyles: {
+      0: { cellWidth: 42 },
+      1: { cellWidth: 28 },
+      2: { cellWidth: 24 },
+      3: { cellWidth: 26 },
+      4: { cellWidth: 25 },
+      5: { cellWidth: 43 },
+      6: { cellWidth: 13 },
+      7: { cellWidth: 14 },
+      8: { cellWidth: 18 },
+      9: { cellWidth: 18 },
+      10: { cellWidth: 18 },
+    },
   })
 
   doc.save(`relatorio-eleitores-${Date.now()}.pdf`)
