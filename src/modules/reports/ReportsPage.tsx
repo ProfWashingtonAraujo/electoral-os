@@ -17,16 +17,22 @@ import { auditApi } from '../../api/audit.api'
 
 export function ReportsPage() {
   const voters = useVotersStore((s) => s.voters)
+  const isLoadingVoters = useVotersStore((s) => s.isLoading)
   const user = useAuthStore((s) => s.user)
   const fetchAllVoters = useVotersStore((s) => s.fetchAll)
   const coordinators = useCoordinatorsStore((s) => s.coordinators)
+  const fetchCoordinators = useCoordinatorsStore((s) => s.fetch)
   const pollingPlaces = usePollingPlacesStore((s) => s.pollingPlaces)
+  const fetchPollingPlaces = usePollingPlacesStore((s) => s.fetch)
 
   useEffect(() => {
-    if (voters.length === 0) {
-      fetchAllVoters()
-    }
-  }, [fetchAllVoters, voters.length])
+    fetchAllVoters()
+  }, [fetchAllVoters])
+
+  useEffect(() => {
+    if (coordinators.length === 0) fetchCoordinators()
+    if (pollingPlaces.length === 0) fetchPollingPlaces()
+  }, [coordinators.length, fetchCoordinators, fetchPollingPlaces, pollingPlaces.length])
 
   const [filters, setFilters] = useState<ReportFiltersState>(initialReportFilters)
   const [showFilters, setShowFilters] = useState(false)
@@ -128,7 +134,7 @@ export function ReportsPage() {
           <button 
             onClick={handleExportPDF}
             className="btn-primary shadow-blue-500/20"
-            disabled={filteredVoters.length === 0}
+            disabled={isLoadingVoters || filteredVoters.length === 0}
           >
             <Download size={15} /> Exportar PDF
           </button>
@@ -137,6 +143,12 @@ export function ReportsPage() {
 
       {/* Relatórios Prontos (Presets) */}
       <ReportPresets onApplyPreset={(preset) => setFilters({ ...initialReportFilters, ...preset })} />
+
+      {isLoadingVoters && (
+        <div className="bg-blue-50 border border-blue-100 text-blue-700 rounded-2xl px-5 py-3 text-sm font-medium">
+          Carregando a base completa de eleitores para gerar o relatório real...
+        </div>
+      )}
 
       {/* Filtros Avançados Expansíveis */}
       {showFilters && (
