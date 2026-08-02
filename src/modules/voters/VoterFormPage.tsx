@@ -7,10 +7,12 @@ import { ArrowLeft, Save } from 'lucide-react'
 import { useVotersStore } from './useVotersStore'
 import { useCoordinatorsStore } from '../coordinators/useCoordinatorsStore'
 import { usePollingPlacesStore } from '../polling-places/usePollingPlacesStore'
+import { voterApi } from '../../api/voter.api'
 import { toast } from '../../components/feedback/Toast'
 import { ROUTES } from '../../constants/routes'
 import { CEARA_MUNICIPALITIES, SUPPORT_STATUS_OPTIONS, REGISTRATION_SOURCE_OPTIONS } from '../../constants/options'
 import { applyPhoneMask } from '../../utils/formatters'
+import type { Voter } from '../../types/voter.types'
 
 const schema = z.object({
   name: z.string().min(3, 'Nome deve ter ao menos 3 caracteres'),
@@ -29,24 +31,82 @@ const schema = z.object({
 })
 type FormData = z.infer<typeof schema>
 
+const defaultFormValues: FormData = {
+  name: '',
+  whatsapp: '',
+  coordinatorId: '',
+  address: '',
+  neighborhood: '',
+  region: '',
+  voterRegistration: '',
+  electoralZone: '',
+  electoralSection: '',
+  pollingPlaceId: '',
+  supportStatus: 'platinum',
+  registrationSource: 'manual',
+  notes: '',
+}
+
+const toFormValues = (voter: Voter): FormData => ({
+  name: voter.name,
+  whatsapp: voter.whatsapp,
+  coordinatorId: voter.coordinatorId,
+  address: voter.address,
+  neighborhood: voter.neighborhood,
+  region: voter.region,
+  voterRegistration: voter.voterRegistration,
+  electoralZone: voter.electoralZone,
+  electoralSection: voter.electoralSection,
+  pollingPlaceId: voter.pollingPlaceId,
+  supportStatus: voter.supportStatus,
+  registrationSource: voter.registrationSource,
+  notes: voter.notes ?? '',
+})
+
 export function VoterFormPage() {
   const { id } = useParams()
   const isEdit = !!id
   const navigate = useNavigate()
-  const { add, update, getById } = useVotersStore()
+  const { add, update } = useVotersStore()
   const coordinators = useCoordinatorsStore((s) => s.coordinators)
   const pollingPlaces = usePollingPlacesStore((s) => s.pollingPlaces)
-  const existing = isEdit ? getById(id!) : undefined
+  const [fetchedVoter, setFetchedVoter] = useState<{ id: string, voter: Voter | null } | null>(null)
+  const fetchedVoterForCurrentRoute = fetchedVoter && fetchedVoter.id === id ? fetchedVoter.voter : undefined
+  const existing = fetchedVoterForCurrentRoute ?? undefined
+  const isLoadingVoter = isEdit && fetchedVoter?.id !== id
   const [pollingPlaceSearch, setPollingPlaceSearch] = useState('')
+  const formValues = existing ? toFormValues(existing) : defaultFormValues
 
-  const { register, handleSubmit, control, setValue, formState: { errors, isSubmitting } } = useForm<FormData>({
+  const { register, handleSubmit, control, setValue, reset, formState: { errors, isSubmitting } } = useForm<FormData>({
     resolver: zodResolver(schema),
-    defaultValues: { supportStatus: 'platinum', registrationSource: 'manual' },
+    defaultValues: formValues,
   })
+
+  useEffect(() => {
+    let cancelled = false
+
+    if (!isEdit || !id) return () => { cancelled = true }
+
+    voterApi.getById(id).then((data) => {
+      if (!cancelled) setFetchedVoter({ id, voter: data })
+    }).catch(() => {
+      if (!cancelled) {
+        setFetchedVoter({ id, voter: null })
+        toast({ type: 'error', title: 'Erro ao carregar eleitor', message: 'Não foi possível buscar os dados para edição' })
+      }
+    })
+
+    return () => { cancelled = true }
+  }, [id, isEdit])
+
+  useEffect(() => {
+    if (existing) reset(toFormValues(existing))
+  }, [existing, reset])
 
   // Auto-fill polling place based on voter registration (first 12 digits)
   const voterReg = useWatch({ control, name: 'voterRegistration' })
   useEffect(() => {
+    if (isEdit) return
     if (voterReg && voterReg.length === 12) {
       // Example: assume electoral zone is digits 7-9 of the registration number
       const zone = voterReg.slice(6, 9);
@@ -59,7 +119,7 @@ export function VoterFormPage() {
         return () => window.clearTimeout(timeoutId)
       }
     }
-  }, [voterReg, pollingPlaces, setValue])
+  }, [isEdit, voterReg, pollingPlaces, setValue])
 
 
   // Auto-fill zone from polling place
@@ -112,6 +172,23 @@ export function VoterFormPage() {
   const inputCls = (err?: { message?: string }) =>
     `form-input ${err ? 'error' : ''}`
 
+  if (isLoadingVoter) {
+    return (
+      <div className="flex flex-col items-center justify-center py-24 text-center">
+        <p className="text-slate-500 font-medium text-lg">Carregando dados do eleitor...</p>
+      </div>
+    )
+  }
+
+  if (isEdit && !existing) {
+    return (
+      <div className="flex flex-col items-center justify-center py-24 text-center">
+        <p className="text-slate-500 font-medium text-lg">Eleitor não encontrado</p>
+        <Link to={ROUTES.VOTERS} className="btn-primary mt-4">Voltar</Link>
+      </div>
+    )
+  }
+
   return (
     <div className="space-y-6 animate-fade-in max-w-4xl">
       {/* Header */}
@@ -127,14 +204,14 @@ export function VoterFormPage() {
         </div>
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+      <form key={existing?.id ?? 'new-voter'} onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         {/* Dados Pessoais */}
         <div className="card p-6">
           <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wide border-b border-slate-100 pb-3 mb-5">Dados Pessoais</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="md:col-span-2">
               <label className="block text-sm font-medium text-slate-700 mb-1.5">Nome completo *</label>
-              <input placeholder="Nome completo do eleitor" className={inputCls(errors.name)} {...register('name')} />
+              <input defaultValue={formValues.name} placeholder="Nome completo do eleitor" className={inputCls(errors.name)} {...register('name')} />
               {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
             </div>
             <div>
@@ -142,6 +219,7 @@ export function VoterFormPage() {
               <input
                 placeholder="(85) 99999-0000"
                 className={inputCls(errors.whatsapp)}
+                defaultValue={formValues.whatsapp}
                 {...register('whatsapp', {
                   onChange: (event) => {
                     event.target.value = applyPhoneMask(event.target.value)
@@ -152,7 +230,7 @@ export function VoterFormPage() {
             </div>
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1.5">Coordenador Responsável *</label>
-              <select className={inputCls(errors.coordinatorId)} {...register('coordinatorId')}>
+              <select defaultValue={formValues.coordinatorId} className={inputCls(errors.coordinatorId)} {...register('coordinatorId')}>
                 <option value="">Selecione...</option>
                 {coordinators.map((c) => (
                   <option key={c.id} value={c.id}>{c.name} — {c.region}</option>
@@ -169,17 +247,17 @@ export function VoterFormPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             <div className="md:col-span-3">
               <label className="block text-sm font-medium text-slate-700 mb-1.5">Endereço completo *</label>
-              <input placeholder="Rua, número, complemento" className={inputCls(errors.address)} {...register('address')} />
+              <input defaultValue={formValues.address} placeholder="Rua, número, complemento" className={inputCls(errors.address)} {...register('address')} />
               {errors.address && <p className="text-red-500 text-xs mt-1">{errors.address.message}</p>}
             </div>
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1.5">Bairro *</label>
-              <input placeholder="Ex: Aldeota" className={inputCls(errors.neighborhood)} {...register('neighborhood')} />
+              <input defaultValue={formValues.neighborhood} placeholder="Ex: Aldeota" className={inputCls(errors.neighborhood)} {...register('neighborhood')} />
               {errors.neighborhood && <p className="text-red-500 text-xs mt-1">{errors.neighborhood.message}</p>}
             </div>
             <div className="md:col-span-2">
               <label className="block text-sm font-medium text-slate-700 mb-1.5">Município *</label>
-              <select className={inputCls(errors.region)} {...register('region')}>
+              <select defaultValue={formValues.region} className={inputCls(errors.region)} {...register('region')}>
                 <option value="">Selecione...</option>
                 {CEARA_MUNICIPALITIES.map((r) => <option key={r} value={r}>{r}</option>)}
               </select>
@@ -197,6 +275,7 @@ export function VoterFormPage() {
               <input
                 placeholder="123456789012"
                 className={inputCls(errors.voterRegistration)}
+                defaultValue={formValues.voterRegistration}
                 {...register('voterRegistration', {
                   onChange: (event) => {
                     event.target.value = event.target.value.replace(/\D/g, '').slice(0, 12);
@@ -239,7 +318,7 @@ export function VoterFormPage() {
               {shouldFilterPollingPlaces && filteredPollingPlaces.length === 0 && !selectedPlaceId && (
                 <p className="text-slate-500 text-xs mt-1">Nenhum local encontrado para essa pesquisa</p>
               )}
-              <input type="hidden" {...register('pollingPlaceId')} />
+              <input type="hidden" defaultValue={formValues.pollingPlaceId} {...register('pollingPlaceId')} />
               {errors.pollingPlaceId && <p className="text-red-500 text-xs mt-1">{errors.pollingPlaceId.message}</p>}
             </div>
             <div>
@@ -247,13 +326,14 @@ export function VoterFormPage() {
               <input
                 placeholder={selectedPlace?.electoralZone ?? 'Ex: 001'}
                 className={inputCls(errors.electoralZone)}
+                defaultValue={formValues.electoralZone}
                 {...register('electoralZone')}
               />
               {errors.electoralZone && <p className="text-red-500 text-xs mt-1">{errors.electoralZone.message}</p>}
             </div>
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1.5">Seção Eleitoral *</label>
-              <select className={inputCls(errors.electoralSection)} {...register('electoralSection')}>
+              <select defaultValue={formValues.electoralSection} className={inputCls(errors.electoralSection)} {...register('electoralSection')}>
                 <option value="">Selecione...</option>
                 {(selectedPlace?.sections ?? []).map((s) => (
                   <option key={s} value={s}>{s}</option>
@@ -283,6 +363,7 @@ export function VoterFormPage() {
                       <input
                         type="radio"
                         value={opt.value}
+                        defaultChecked={formValues.supportStatus === opt.value}
                         className={`w-4 h-4 border-2 border-slate-300 ${colors[opt.value as keyof typeof colors]}`}
                         {...register('supportStatus')}
                       />
@@ -294,14 +375,14 @@ export function VoterFormPage() {
             </div>
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1.5">Origem do Cadastro *</label>
-              <select className="form-input" {...register('registrationSource')}>
+              <select defaultValue={formValues.registrationSource} className="form-input" {...register('registrationSource')}>
                 {REGISTRATION_SOURCE_OPTIONS.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
               </select>
             </div>
           </div>
           <div className="mt-5">
             <label className="block text-sm font-medium text-slate-700 mb-1.5">Observações</label>
-            <textarea rows={3} placeholder="Informações adicionais sobre o eleitor..." className="form-input resize-none" {...register('notes')} />
+            <textarea defaultValue={formValues.notes} rows={3} placeholder="Informações adicionais sobre o eleitor..." className="form-input resize-none" {...register('notes')} />
           </div>
         </div>
 
